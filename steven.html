@@ -147,7 +147,6 @@
 				padding: 8px;
 			}
 			.sponsor-card h4 {
-                color: #f1d2ae;
 				margin: 0 0 8px 0;
 				font-size: 1em;
 			}
@@ -161,6 +160,150 @@
 				text-align: center;
 				margin: 20px 0 15px 0;
 				font-size: 1.8em;
+			}
+
+			/* Tablet Design (768px and below) */
+			@media screen and (max-width: 768px) {
+				body {
+					overflow-y: auto;
+					height: auto;
+				}
+				#page-wrapper {
+					height: auto;
+				}
+				.main-container {
+					flex-direction: column;
+					height: auto;
+				}
+				.poster-container {
+					position: relative;
+					top: 0;
+					right: 0;
+					width: 100%;
+					max-width: 400px;
+					margin: 0 auto 20px auto;
+					z-index: 1;
+				}
+				.content-container {
+					padding: 20px;
+					padding-right: 20px;
+					height: auto;
+					overflow-y: visible;
+				}
+				.intro-section h1 {
+					font-size: 2em;
+				}
+				.intro-section h2 {
+					font-size: 1.3em;
+				}
+				.intro-section p {
+					font-size: 1em;
+				}
+				.biography-grid {
+					grid-template-columns: 1fr;
+					gap: 15px;
+					margin: 20px 0;
+				}
+				.mission-grid {
+					grid-template-columns: 1fr;
+					gap: 15px;
+				}
+				.sponsors-grid {
+					grid-template-columns: 1fr;
+					gap: 15px;
+				}
+				.section-title {
+					font-size: 1.5em;
+					margin: 15px 0 10px 0;
+				}
+				.bio-card, .mission-card, .sponsor-card {
+					padding: 15px;
+				}
+			}
+
+			/* Mobile Design (480px and below) */
+			@media screen and (max-width: 480px) {
+				.content-container {
+					padding: 15px;
+				}
+				.intro-section {
+					margin-bottom: 20px;
+				}
+				.intro-section h1 {
+					font-size: 1.8em;
+				}
+				.intro-section h2 {
+					font-size: 1.2em;
+				}
+				.intro-section p {
+					font-size: 0.95em;
+				}
+				.poster-container {
+					max-width: 300px;
+					margin-bottom: 15px;
+				}
+				.biography-grid, .mission-grid, .sponsors-grid {
+					gap: 12px;
+					margin: 15px 0;
+				}
+				.bio-card, .mission-card, .sponsor-card {
+					padding: 12px;
+				}
+				.bio-card h3 {
+					font-size: 1.1em;
+				}
+				.bio-card p {
+					font-size: 0.9em;
+				}
+				.mission-card h4 {
+					font-size: 1em;
+				}
+				.mission-card p {
+					font-size: 0.85em;
+				}
+				.sponsor-card h4 {
+					font-size: 0.95em;
+				}
+				.sponsor-card p {
+					font-size: 0.8em;
+				}
+				.sponsor-logo {
+					width: 50px;
+					height: 50px;
+					margin-bottom: 8px;
+				}
+				.section-title {
+					font-size: 1.3em;
+					margin: 12px 0 8px 0;
+				}
+			}
+
+			/* Small Mobile Design (360px and below) */
+			@media screen and (max-width: 360px) {
+				.content-container {
+					padding: 10px;
+				}
+				.intro-section h1 {
+					font-size: 1.6em;
+				}
+				.intro-section h2 {
+					font-size: 1.1em;
+				}
+				.intro-section p {
+					font-size: 0.9em;
+				}
+				.poster-container {
+					max-width: 250px;
+				}
+				.biography-grid, .mission-grid, .sponsors-grid {
+					gap: 10px;
+				}
+				.bio-card, .mission-card, .sponsor-card {
+					padding: 10px;
+				}
+				.section-title {
+					font-size: 1.2em;
+				}
 			}
 		</style>
 	</head>
