@@ -33,6 +33,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => (
     <button
       onClick={onToggle}
       className="w-full flex items-center justify-between py-6 text-left group cursor-pointer"
+      aria-expanded={isOpen}
     >
       <span className="text-white font-bold text-base md:text-lg pr-4 group-hover:text-pjd-gold transition-colors font-body">
         {question}
