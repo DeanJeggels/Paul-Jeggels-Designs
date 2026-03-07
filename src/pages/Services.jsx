@@ -7,6 +7,7 @@ const SERVICES = [
     icon: Sliders,
     title: 'Custom Surfboards',
     tagline: 'Your dimensions. Your wave. Your board.',
+    price: 'From R5,000',
     description:
       "Every custom board starts with a conversation. Paul will ask about your height, weight, surfing level, and the specific breaks you ride. He takes that information and shapes a board that fits your surfing — not someone else's idea of it. From shortboard to longboard, fish to hybrid.",
     detail: [
@@ -22,6 +23,7 @@ const SERVICES = [
     icon: Wrench,
     title: 'Ding Repair',
     tagline: 'Back in the water, fast.',
+    price: 'From R500',
     description:
       "Dings happen. What matters is getting your board sorted properly — not patched with a kit from a surf shop. Paul and Daniel handle repairs the right way, from minor pressure dents to full rail rebuilds. Your board gets the same care as a new shape.",
     detail: [
@@ -37,6 +39,7 @@ const SERVICES = [
     icon: Fish,
     title: 'Fin Manufacturing',
     tagline: 'Fins built to match your board.',
+    price: 'From R800',
     description:
       "Stock fins are made for every board. Paul's fins are made for yours. When your board was shaped with specific flex and foil in mind, it makes sense to match it with fins built the same way — by hand, in Jeffreys Bay.",
     detail: [
@@ -52,6 +55,7 @@ const SERVICES = [
     icon: Tag,
     title: 'Second-Hand Boards',
     tagline: 'Quality shapes at a fraction of the price.',
+    price: 'Prices vary',
     description:
       "Not every surfer needs a custom board on day one. Paul's second-hand stock gives you access to properly shaped boards — some ridden once, some lightly used — at prices that make sense. Every board in stock was shaped with the same care as a custom order.",
     detail: [
@@ -109,7 +113,10 @@ const Services = () => (
             {/* Content */}
             <div>
               <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-4">{s.tagline}</p>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">{s.title}</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight font-display">{s.title}</h2>
+              {s.price && (
+                <p className="text-pjd-gold text-sm font-bold mb-6 font-body">{s.price}</p>
+              )}
               <p className="text-white/60 leading-relaxed mb-8">{s.description}</p>
 
               <ul className="flex flex-col gap-3 mb-10">

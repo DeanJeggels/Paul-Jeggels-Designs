@@ -112,13 +112,13 @@ const Gallery = () => {
       {/* CTA */}
       <div className="bg-black py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Want One Like This?</h2>
-          <p className="text-white/50 mb-8">Get in touch and Paul will shape it to your exact spec.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-display">Like What You See?</h2>
+          <p className="text-white/50 mb-8 font-body">Find your perfect board in 60 seconds — Paul will handle the rest.</p>
           <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group"
+            to="/"
+            className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group cursor-pointer font-body"
           >
-            Request a Quote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Take the Board Quiz <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

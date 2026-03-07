@@ -188,10 +188,10 @@ const Stock = () => {
               <Phone className="w-4 h-4" /> Call Paul
             </a>
             <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group"
+              to="/"
+              className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group cursor-pointer font-body"
             >
-              Custom Order <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Take the Board Quiz <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
