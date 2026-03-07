@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play } from 'lucide-react';
 
@@ -54,12 +55,17 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-pjd-blue pt-24">
+      <Helmet>
+        <title>Gallery — 40 Years of Hand-Shaped Surfboards | Paul Jeggels Designs</title>
+        <meta name="description" content="Browse 40+ years of custom surfboard designs hand-shaped by Paul Jeggels in Jeffreys Bay. Shortboards, fish, longboards & more." />
+        <link rel="canonical" href="https://pauljeggelsdesigns.co.za/gallery" />
+      </Helmet>
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-4">The Work</p>
         <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
-          30 Years of Shapes.<br />Zero Compromises.
+          40 Years of Shapes.<br />Zero Compromises.
         </h1>
         <p className="text-white/50 max-w-xl leading-relaxed">
           Every board in this gallery was hand-shaped by Paul Jeggels in Jeffreys Bay. No templates. No shortcuts. Just craft.
@@ -68,11 +74,11 @@ const Gallery = () => {
 
       {/* Photo grid */}
       <div className="max-w-7xl mx-auto px-6 pb-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {GALLERY_IMAGES.map((img, i) => (
             <button
               key={i}
-              onClick={() => setLightbox(img.src)}
+              onClick={() => setLightbox(img)}
               className="group relative aspect-square overflow-hidden bg-black/20 focus:outline-none focus:ring-2 focus:ring-pjd-gold"
             >
               <img
@@ -101,6 +107,7 @@ const Gallery = () => {
                 src={v.src}
                 controls
                 playsInline
+                preload="none"
                 className="w-full h-full object-cover"
                 poster="/images/paul_jeggels_glassing_1.jpg"
               />
@@ -130,8 +137,8 @@ const Gallery = () => {
           onClick={() => setLightbox(null)}
         >
           <img
-            src={lightbox}
-            alt="Enlarged view"
+            src={lightbox.src}
+            alt={lightbox.label}
             className="max-w-full max-h-full object-contain"
             onClick={(e) => e.stopPropagation()}
           />

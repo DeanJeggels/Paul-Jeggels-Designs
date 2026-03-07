@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import CustomBuilder from '../components/CustomBuilder';
@@ -188,6 +189,11 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Paul Jeggels Designs — Custom Hand-Shaped Surfboards, Jeffreys Bay</title>
+        <meta name="description" content="Custom surfboards hand-shaped by Paul Jeggels in Jeffreys Bay, South Africa. 40+ years experience. Shortboards, fish, longboards & more." />
+        <link rel="canonical" href="https://pauljeggelsdesigns.co.za/" />
+      </Helmet>
       {isQuizOpen && <BoardQuiz onClose={() => setIsQuizOpen(false)} />}
       {isBuilderOpen && <CustomBuilder onClose={() => setIsBuilderOpen(false)} />}
 

@@ -5,22 +5,36 @@ import { supabase } from '../lib/supabase';
 const CHAT_ENDPOINT = `${import.meta.env.VITE_SUPABASE_URL || 'https://dplbfhwqbmnzmrncxain.supabase.co'}/functions/v1/chat`;
 const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwbGJmaHdxYm1uem1ybmN4YWluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUyNjIxNjgsImV4cCI6MjA2MDgzODE2OH0.e1SJPplUC8izzANfVYT1VNNBAZT2Ki6kivDt6lYjxIY';
 
+const MAX_MESSAGES_PER_SESSION = 30;
+
 const ChatAssistant = ({ onOpenQuiz }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef(null);
+  const [messageCount, setMessageCount] = useState(0);
+  const messagesContainerRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
   }, [messages]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
     const text = input.trim();
     if (!text || isLoading) return;
+
+    if (messageCount >= MAX_MESSAGES_PER_SESSION) {
+      setMessages((prev) => [...prev, {
+        role: 'assistant',
+        content: "You've reached the message limit for this session. Contact Paul directly at +27 82 960 9353 or try the board quiz!",
+      }]);
+      return;
+    }
 
     // If not expanded yet, expand on first message
     if (!isExpanded) {
@@ -31,6 +45,7 @@ const ChatAssistant = ({ onOpenQuiz }) => {
     setMessages((prev) => [...prev, userMsg]);
     setInput('');
     setIsLoading(true);
+    setMessageCount((c) => c + 1);
 
     try {
       const response = await fetch(CHAT_ENDPOINT, {
@@ -96,7 +111,7 @@ const ChatAssistant = ({ onOpenQuiz }) => {
       </div>
 
       {/* Messages */}
-      <div className="h-64 overflow-y-auto px-4 py-3 flex flex-col gap-3">
+      <div ref={messagesContainerRef} className="h-64 overflow-y-auto px-4 py-3 flex flex-col gap-3">
         {messages.length === 0 && (
           <div className="text-center py-6">
             <p className="text-white/30 text-sm font-body">Ask me anything about Paul's boards, pricing, or the process.</p>
@@ -144,7 +159,6 @@ const ChatAssistant = ({ onOpenQuiz }) => {
           </div>
         )}
 
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Input */}
@@ -169,6 +183,9 @@ const ChatAssistant = ({ onOpenQuiz }) => {
           </button>
         </div>
       </form>
+      <p className="text-white/20 text-[10px] text-center px-3 pb-1.5 font-body">
+        AI assistant — responses may not always be accurate. Contact Paul directly for confirmed details.
+      </p>
     </div>
   );
 };

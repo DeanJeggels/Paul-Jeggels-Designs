@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { Phone, Instagram, MapPin, CheckCircle, AlertCircle, Loader, ArrowRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
@@ -94,6 +95,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-pjd-blue pt-24">
+      <Helmet>
+        <title>Get a Quote — Custom Surfboard Order | Paul Jeggels Designs</title>
+        <meta name="description" content="Order your custom surfboard from Paul Jeggels in Jeffreys Bay. Free consultation. Response within 24 hours." />
+        <link rel="canonical" href="https://pauljeggelsdesigns.co.za/contact" />
+      </Helmet>
 
       {/* Header */}
       <div

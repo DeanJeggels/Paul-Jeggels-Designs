@@ -5,6 +5,11 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
+// Rate limiting: 20 requests per 15 minutes per IP
+const RATE_LIMIT = 20
+const RATE_WINDOW_MS = 15 * 60 * 1000
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
+
 const SYSTEM_PROMPT = `You are a friendly assistant for Paul Jeggels Designs, a custom surfboard shaper in Jeffreys Bay, South Africa. Paul has been shaping boards for over 40 years.
 
 Your personality:
@@ -17,7 +22,7 @@ Your personality:
 
 Important facts:
 - Custom boards: R5,000 to R15,000+ depending on size and design
-- Timeline: 1-3 weeks from chat to finished board
+- Timeline: 2-4 weeks from chat to finished board
 - Paul shapes every board himself — no factory, no templates
 - Workshop: 15 Dageraad Street, Jeffreys Bay
 - Phone: +27 82 960 9353
@@ -26,6 +31,22 @@ Important facts:
 Deno.serve(async (req: Request) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
+  }
+
+  // Rate limit by IP
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+  const now = Date.now()
+  const entry = rateLimitMap.get(ip)
+  if (entry && now < entry.resetAt) {
+    if (entry.count >= RATE_LIMIT) {
+      return new Response(
+        JSON.stringify({ reply: "You've sent a lot of messages! Try again in a few minutes, or reach Paul directly at +27 82 960 9353." }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+    entry.count++
+  } else {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS })
   }
 
   try {
@@ -43,7 +64,7 @@ Deno.serve(async (req: Request) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     )
 
-    // Search knowledge base using keyword search function
+    // Search knowledge base via RAG webhook (hybrid search + embeddings)
     const searchTerms = message
       .toLowerCase()
       .split(/\s+/)
@@ -54,22 +75,40 @@ Deno.serve(async (req: Request) => {
     let contextText = ''
 
     try {
-      const { data: context } = await supabase
-        .rpc('keyword_search_pjd', {
-          query_text: searchTerms,
-          match_count: 5,
-        })
+      const controller = new AbortController()
+      const timeout = setTimeout(() => controller.abort(), 3000)
+      const ragResponse = await fetch('https://n8n-uq4a.onrender.com/webhook/rag-pjd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: message }),
+        signal: controller.signal,
+      })
+      clearTimeout(timeout)
 
-      contextText = context?.map((c: { content: string }) => c.content).join('\n\n') || ''
+      if (ragResponse.ok) {
+        const ragData = await ragResponse.json()
+        contextText = ragData.contents?.join('\n\n') || ''
+      }
     } catch {
-      // Fallback: direct table query if function not available yet
-      const { data: context } = await supabase
-        .from('documents_pjd')
-        .select('content, metadata')
-        .textSearch('fts', searchTerms, { config: 'english' })
-        .limit(5)
+      // Fallback to keyword search if RAG webhook unavailable or times out
+    }
 
-      contextText = context?.map((c: { content: string }) => c.content).join('\n\n') || ''
+    if (!contextText) {
+      try {
+        const { data: context } = await supabase
+          .rpc('keyword_search_pjd', {
+            query_text: searchTerms,
+            match_count: 5,
+          })
+        contextText = context?.map((c: { content: string }) => c.content).join('\n\n') || ''
+      } catch {
+        const { data: context } = await supabase
+          .from('documents_pjd')
+          .select('content, metadata')
+          .textSearch('fts', searchTerms, { config: 'english' })
+          .limit(5)
+        contextText = context?.map((c: { content: string }) => c.content).join('\n\n') || ''
+      }
     }
 
     // Build messages array

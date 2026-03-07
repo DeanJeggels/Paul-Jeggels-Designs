@@ -17,7 +17,7 @@ const Footer = () => {
             </div>
           </div>
           <p className="text-white/50 text-sm leading-relaxed max-w-xs">
-            Hand-shaped surfboards from Jeffreys Bay. Every board shaped by Paul himself — built for the surfer, not the shelf.
+            Custom surfboards hand-shaped in Jeffreys Bay, South Africa. Every board shaped by Paul himself — built for the surfer, not the shelf.
           </p>
         </div>
 

@@ -1,9 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote } from 'lucide-react';
 
 const About = () => (
   <div className="min-h-screen bg-pjd-blue pt-24">
+    <Helmet>
+      <title>About Paul Jeggels — Master Surfboard Shaper, Jeffreys Bay</title>
+      <meta name="description" content="Meet Paul Jeggels, Jeffreys Bay's master surfboard shaper with 40+ years and 4,000+ hand-shaped boards. Featured in Zigzag Magazine." />
+      <link rel="canonical" href="https://pauljeggelsdesigns.co.za/about" />
+    </Helmet>
 
     {/* Hero */}
     <div className="relative h-[60vh] overflow-hidden">
@@ -94,33 +100,10 @@ const About = () => (
             It's the kind of recognition that only comes one way: by consistently making boards that surfers love to ride.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <img src="/images/ZIGZAG01.jpg" alt="Zigzag Magazine feature" className="w-full aspect-[3/4] object-cover" />
-          <img src="/images/Zigzag02jpg.jpg" alt="Zigzag Magazine feature" className="w-full aspect-[3/4] object-cover" />
+        <div className="flex flex-col gap-4">
+          <img src="/images/ZIGZAG01.jpg" alt="Zigzag Magazine feature" className="w-full aspect-[16/10] object-cover" />
+          <img src="/images/Zigzag02jpg.jpg" alt="Zigzag Magazine feature" className="w-full aspect-[16/10] object-cover" />
         </div>
-      </div>
-    </div>
-
-    {/* Daniel */}
-    <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div className="flex flex-col gap-4">
-        <img src="/images/paul_jeggels_danno_dean.jpg" alt="Paul and Daniel" className="w-full aspect-video object-cover" />
-        <div className="grid grid-cols-2 gap-4">
-          <img src="/images/daniel_jeggels_1.jpg" alt="Daniel Jeggels" className="w-full aspect-square object-cover" />
-          <img src="/images/paul_jeggels_daniel_jeggels_1.jpg" alt="Paul and Daniel Jeggels" className="w-full aspect-square object-cover" />
-        </div>
-      </div>
-      <div>
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-5">The Family</p>
-        <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-6">
-          Daniel Jeggels.
-        </h2>
-        <p className="text-white/60 leading-relaxed mb-4">
-          Daniel is Paul's son and works alongside him — from the shaping bay to customer consultations. Growing up around world-class surfboards gives Daniel a level of board knowledge most people can only dream of.
-        </p>
-        <p className="text-white/60 leading-relaxed">
-          Between Paul and Daniel, you get deep expertise and genuine passion for every board they touch.
-        </p>
       </div>
     </div>
 
