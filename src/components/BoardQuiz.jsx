@@ -45,11 +45,6 @@ const BOARD_RECOMMENDATIONS = {
     image: '/images/paul_jeggels_design_7.jpg',
     description: 'Quick and loose with great paddle power. Ideal for getting the most out of smaller waves while keeping things fun.',
   },
-  hybrid: {
-    name: 'Hybrid',
-    image: '/images/paul_jeggels_design_10.jpg',
-    description: 'The best of both worlds — paddles well, handles most conditions, and works for almost any surfer. A great daily board.',
-  },
   longboard: {
     name: 'Longboard',
     image: '/images/paul_jeggels_design_13.jpg',
@@ -61,19 +56,19 @@ function getRecommendation(answers) {
   const { experience, waves, style } = answers;
 
   if (experience === 'beginner') {
-    if (style === 'speed') return 'hybrid';
+    if (style === 'speed') return 'fish';
     return 'longboard';
   }
   if (experience === 'intermediate') {
     if (style === 'speed') return waves === 'beach' ? 'fish' : 'shortboard';
     if (style === 'flow') return 'fish';
-    return 'hybrid';
+    return 'fish';
   }
   // experienced
   if (style === 'speed') return 'shortboard';
   if (style === 'flow') return 'fish';
   if (waves === 'beach') return 'fish';
-  return 'hybrid';
+  return 'shortboard';
 }
 
 const BoardQuiz = ({ onClose }) => {

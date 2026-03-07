@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sliders, Wrench, Fish, Tag } from 'lucide-react';
 
@@ -48,7 +49,7 @@ const SERVICES = [
       'FCS and Futures compatible',
       'Single, twin, thruster and quad setups',
     ],
-    image: '/images/paul_jeggels_design_1.jpg',
+    image: '/images/paul_jeggels_fin_1.jpg',
     cta: 'Enquire About Fins',
   },
   {
@@ -72,6 +73,11 @@ const SERVICES = [
 
 const Services = () => (
   <div className="min-h-screen bg-pjd-blue pt-24">
+    <Helmet>
+      <title>Services — Custom Boards, Ding Repair & Fins | Paul Jeggels Designs</title>
+      <meta name="description" content="Custom surfboards from R5,000, ding repairs from R500, custom fins from R800. Hand-shaped in Jeffreys Bay by Paul Jeggels." />
+      <link rel="canonical" href="https://pauljeggelsdesigns.co.za/services" />
+    </Helmet>
 
     {/* Header */}
     <div
@@ -148,7 +154,7 @@ const Services = () => (
           {[
             { step: '01', title: 'You Get in Touch', desc: 'Fill in the form or give Paul a call. Tell him what you need.' },
             { step: '02', title: 'Paul Asks the Right Questions', desc: "Height, weight, surfing level, local breaks. He needs the full picture." },
-            { step: '03', title: 'The Board Gets Shaped', desc: 'Paul shapes every board by hand. Usually 4–8 weeks depending on demand.' },
+            { step: '03', title: 'The Board Gets Shaped', desc: 'Paul shapes every board by hand. Usually 2–4 weeks depending on demand.' },
             { step: '04', title: 'You Go Surf', desc: "Pick up your board and get in the water. That's the whole point." },
           ].map(({ step, title, desc }) => (
             <div key={step} className="flex flex-col gap-4">

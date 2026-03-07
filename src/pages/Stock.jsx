@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone } from 'lucide-react';
 import { supabase } from '../lib/supabase';
@@ -125,6 +126,11 @@ const Stock = () => {
 
   return (
     <div className="min-h-screen bg-pjd-blue pt-24">
+      <Helmet>
+        <title>Stock Boards — Pre-Shaped Surfboards Available Now | PJD</title>
+        <meta name="description" content="Quality second-hand and pre-shaped surfboards by Paul Jeggels. All boards inspected and repaired. Jeffreys Bay." />
+        <link rel="canonical" href="https://pauljeggelsdesigns.co.za/stock" />
+      </Helmet>
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 py-16">
