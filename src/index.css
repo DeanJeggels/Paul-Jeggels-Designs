@@ -4,11 +4,17 @@
   --color-pjd-blue: #0a192f;
   --color-pjd-white: #e6f1ff;
   --color-pjd-gold: #ffd700;
+  --color-pjd-gold-dark: #CA8A04;
+  --font-display: 'Bodoni Moda', serif;
+  --font-body: 'Jost', sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-pjd-blue text-pjd-white font-sans antialiased;
+    @apply bg-pjd-blue text-pjd-white font-body antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
   }
 }
 
