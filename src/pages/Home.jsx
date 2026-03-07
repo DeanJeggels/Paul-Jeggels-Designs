@@ -148,6 +148,7 @@ const AboutTeaser = () => (
           src="/images/paul_jeggels_shaping_3.jpg"
           alt="Paul Jeggels in the shaping bay"
           className="w-full aspect-[4/5] object-cover"
+          loading="lazy"
         />
         <div className="absolute -bottom-4 -right-4 bg-pjd-gold px-6 py-4">
           <p className="text-pjd-blue font-bold text-xs tracking-widest uppercase leading-none font-body">As featured in</p>

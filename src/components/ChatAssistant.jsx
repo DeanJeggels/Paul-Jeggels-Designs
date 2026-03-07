@@ -89,6 +89,7 @@ const ChatAssistant = ({ onOpenQuiz }) => {
         <button
           onClick={() => { setIsExpanded(false); setMessages([]); }}
           className="p-1 hover:bg-white/10 rounded transition-colors cursor-pointer"
+          aria-label="Close chat"
         >
           <X className="w-4 h-4 text-white/40" />
         </button>
@@ -162,6 +163,7 @@ const ChatAssistant = ({ onOpenQuiz }) => {
             type="submit"
             disabled={isLoading || !input.trim()}
             className="bg-pjd-gold text-pjd-blue p-2.5 rounded-lg hover:bg-white transition-colors disabled:opacity-30 cursor-pointer"
+            aria-label="Send message"
           >
             <Send className="w-4 h-4" />
           </button>

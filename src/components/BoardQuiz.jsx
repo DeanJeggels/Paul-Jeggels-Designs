@@ -128,7 +128,7 @@ const BoardQuiz = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6" role="dialog" aria-modal="true" aria-label="Board finder quiz">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div className="relative bg-pjd-blue w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl border border-white/10">
 
@@ -136,7 +136,7 @@ const BoardQuiz = ({ onClose }) => {
         <div className="sticky top-0 bg-pjd-blue z-10 p-6 border-b border-white/10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-white font-bold text-lg font-display">Find Your Perfect Board</h2>
-            <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors cursor-pointer">
+            <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors cursor-pointer" aria-label="Close quiz">
               <X className="w-5 h-5 text-white/60" />
             </button>
           </div>
