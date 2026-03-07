@@ -43,26 +43,38 @@ Deno.serve(async (req: Request) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     )
 
-    // Search knowledge base using full-text search
-    // (Vector search requires embeddings — this is a text fallback)
+    // Search knowledge base using keyword search function
     const searchTerms = message
       .toLowerCase()
       .split(/\s+/)
       .filter((w: string) => w.length > 2)
       .slice(0, 6)
-      .join(' | ')
+      .join(' ')
 
-    const { data: context } = await supabase
-      .from('pjd_knowledge_base')
-      .select('content, category')
-      .textSearch('content', searchTerms, { config: 'english' })
-      .limit(5)
+    let contextText = ''
 
-    const contextText = context?.map((c: { content: string }) => c.content).join('\n\n') || ''
+    try {
+      const { data: context } = await supabase
+        .rpc('keyword_search_pjd', {
+          query_text: searchTerms,
+          match_count: 5,
+        })
+
+      contextText = context?.map((c: { content: string }) => c.content).join('\n\n') || ''
+    } catch {
+      // Fallback: direct table query if function not available yet
+      const { data: context } = await supabase
+        .from('documents_pjd')
+        .select('content, metadata')
+        .textSearch('fts', searchTerms, { config: 'english' })
+        .limit(5)
+
+      contextText = context?.map((c: { content: string }) => c.content).join('\n\n') || ''
+    }
 
     // Build messages array
     const messages = [
-      ...(history || []).slice(-10), // Keep last 10 messages for context
+      ...(history || []).slice(-10),
       { role: 'user', content: message }
     ]
 
