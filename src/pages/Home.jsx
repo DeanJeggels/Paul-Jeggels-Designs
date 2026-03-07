@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Search, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import CustomBuilder from '../components/CustomBuilder';
 import BoardQuiz from '../components/BoardQuiz';
+import ChatAssistant from '../components/ChatAssistant';
 import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
@@ -10,19 +11,7 @@ import InlineContactForm from '../components/InlineContactForm';
 
 // ─── HERO ────────────────────────────────────────────────────────────────────
 
-const Hero = ({ onOpenQuiz, onOpenBuilder }) => {
-  const [chatInput, setChatInput] = useState('');
-
-  const handleChatSubmit = (e) => {
-    e.preventDefault();
-    // Phase 1: redirect to contact with message pre-filled
-    // Phase 2: will connect to AI chat assistant
-    if (chatInput.trim()) {
-      window.location.href = `/contact?message=${encodeURIComponent(chatInput)}`;
-    }
-  };
-
-  return (
+const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
     <section className="relative w-full min-h-screen bg-pjd-blue overflow-hidden flex items-center">
       {/* Background */}
       <div className="absolute inset-0 z-0">
@@ -64,19 +53,10 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => {
           </p>
         </div>
 
-        {/* Chat input */}
-        <form onSubmit={handleChatSubmit} className="max-w-xl mb-6">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
-            <input
-              type="text"
-              placeholder="Ask anything about custom boards..."
-              value={chatInput}
-              onChange={(e) => setChatInput(e.target.value)}
-              className="w-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/35 pl-12 pr-4 py-4 text-base rounded-lg focus:outline-none focus:border-pjd-gold focus:bg-white/15 transition-all font-body"
-            />
-          </div>
-        </form>
+        {/* AI Chat input */}
+        <div className="mb-6">
+          <ChatAssistant onOpenQuiz={onOpenQuiz} />
+        </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -101,7 +81,6 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => {
       </div>
     </section>
   );
-};
 
 // ─── GALLERY TEASER ───────────────────────────────────────────────────────────
 
