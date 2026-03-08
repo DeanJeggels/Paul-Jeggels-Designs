@@ -54,7 +54,7 @@ const Gallery = () => {
   const [lightbox, setLightbox] = useState(null);
 
   return (
-    <div className="min-h-screen bg-pjd-blue pt-24">
+    <div className="min-h-screen bg-pjd-cream pt-24">
       <Helmet>
         <title>Gallery — 40 Years of Hand-Shaped Surfboards | Paul Jeggels Designs</title>
         <meta name="description" content="Browse 40+ years of custom surfboard designs hand-shaped by Paul Jeggels in Jeffreys Bay. Shortboards, fish, longboards & more." />
@@ -63,11 +63,11 @@ const Gallery = () => {
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-4">The Work</p>
-        <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-4">The Work</p>
+        <h1 className="text-5xl md:text-7xl font-black text-pjd-dark leading-tight mb-6">
           40 Years of Shapes.<br />Zero Compromises.
         </h1>
-        <p className="text-white/50 max-w-xl leading-relaxed">
+        <p className="text-pjd-stone max-w-xl leading-relaxed">
           Every board in this gallery was hand-shaped by Paul Jeggels in Jeffreys Bay. No templates. No shortcuts. Just craft.
         </p>
       </div>
@@ -79,7 +79,7 @@ const Gallery = () => {
             <button
               key={i}
               onClick={() => setLightbox(img)}
-              className="group relative aspect-square overflow-hidden bg-black/20 focus:outline-none focus:ring-2 focus:ring-pjd-gold"
+              className="group relative aspect-square overflow-hidden bg-black/20 focus:outline-none focus:ring-2 focus:ring-pjd-teal"
             >
               <img
                 src={img.src}
@@ -99,7 +99,7 @@ const Gallery = () => {
 
       {/* Videos */}
       <div className="max-w-7xl mx-auto px-6 pb-24">
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-8">Process Videos</p>
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-8">Process Videos</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {VIDEOS.map((v, i) => (
             <div key={i} className="relative aspect-video overflow-hidden bg-black">
@@ -117,13 +117,13 @@ const Gallery = () => {
       </div>
 
       {/* CTA */}
-      <div className="bg-black py-20">
+      <div className="bg-pjd-dark py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-display">Like What You See?</h2>
           <p className="text-white/50 mb-8 font-body">Find your perfect board in 60 seconds — Paul will handle the rest.</p>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group cursor-pointer font-body"
+            className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream hover:text-pjd-dark transition-colors group cursor-pointer font-body"
           >
             Take the Board Quiz <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>

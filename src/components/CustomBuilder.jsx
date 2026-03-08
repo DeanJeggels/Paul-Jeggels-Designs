@@ -38,8 +38,8 @@ const BOARD_TYPES = [
 const FIN_SETUPS = ['Thruster (3 fins)', 'Twin fin (2 fins)', 'Quad (4 fins)', '2+1 (longboard)', 'Single fin', 'Not sure'];
 const GLASS_JOBS = ['Standard (4oz)', '4+4oz deck (stronger)', '4+4+4oz (heavy duty)', "Paul's recommendation"];
 
-const inputClass = 'w-full bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-pjd-gold transition-colors';
-const selectClass = 'w-full bg-[#0a192f] border border-white/15 text-white px-4 py-3 text-sm focus:outline-none focus:border-pjd-gold transition-colors appearance-none';
+const inputClass = 'w-full bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-pjd-teal transition-colors';
+const selectClass = 'w-full bg-pjd-dark border border-white/15 text-white px-4 py-3 text-sm focus:outline-none focus:border-pjd-teal transition-colors appearance-none';
 const labelClass = 'block text-white/60 text-xs font-bold tracking-widest uppercase mb-2';
 
 // ─── VIEW A: BOARD TYPE SELECTOR ─────────────────────────────────────────────
@@ -47,14 +47,14 @@ const labelClass = 'block text-white/60 text-xs font-bold tracking-widest upperc
 const BoardSelector = ({ onSelect, onClose }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6">
     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-    <div className="relative bg-pjd-blue w-full max-w-7xl h-full md:h-[90vh] md:rounded-xl shadow-2xl overflow-hidden flex flex-col">
+    <div className="relative bg-pjd-dark w-full max-w-7xl h-full md:h-[90vh] md:rounded-xl shadow-2xl overflow-hidden flex flex-col">
 
       <div className="p-6 md:p-8 border-b border-white/10 flex justify-between items-center">
         <div>
           <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">What Are You After?</h2>
           <p className="text-white/40 text-sm mt-1">Pick a shape and we'll spec it out for you.</p>
         </div>
-        <button onClick={onClose} className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors">
+        <button onClick={onClose} className="p-2 bg-white/5 hover:bg-pjd-cream/10 rounded-full transition-colors">
           <X className="w-6 h-6 text-white" />
         </button>
       </div>
@@ -65,7 +65,7 @@ const BoardSelector = ({ onSelect, onClose }) => (
             <button
               key={board.id}
               onClick={() => onSelect(board)}
-              className="group text-left bg-white/5 border border-white/10 hover:border-pjd-gold transition-all duration-300 overflow-hidden focus:outline-none focus:border-pjd-gold"
+              className="group text-left bg-white/5 border border-white/10 hover:border-pjd-teal transition-all duration-300 overflow-hidden focus:outline-none focus:border-pjd-teal"
             >
               <div className="h-48 overflow-hidden relative">
                 <img
@@ -73,13 +73,13 @@ const BoardSelector = ({ onSelect, onClose }) => (
                   alt={board.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-pjd-blue/30 group-hover:bg-pjd-blue/10 transition-colors" />
+                <div className="absolute inset-0 bg-pjd-dark/30 group-hover:bg-pjd-dark/10 transition-colors" />
               </div>
               <div className="p-5">
-                <span className="text-pjd-gold text-xs font-bold tracking-widest uppercase">{board.category}</span>
+                <span className="text-pjd-teal text-xs font-bold tracking-widest uppercase">{board.category}</span>
                 <h3 className="text-white font-black text-xl mt-1 mb-2">{board.name}</h3>
                 <p className="text-white/50 text-xs leading-relaxed mb-4">{board.description}</p>
-                <div className="flex items-center gap-2 text-pjd-gold text-xs font-bold tracking-widest uppercase group-hover:gap-3 transition-all">
+                <div className="flex items-center gap-2 text-pjd-teal text-xs font-bold tracking-widest uppercase group-hover:gap-3 transition-all">
                   Select <ArrowRight className="w-3 h-3" />
                 </div>
               </div>
@@ -160,15 +160,15 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
         <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
-        <div className="relative bg-pjd-blue border border-white/10 p-12 max-w-md w-full text-center shadow-2xl">
-          <CheckCircle className="w-14 h-14 text-pjd-gold mx-auto mb-5" />
+        <div className="relative bg-pjd-dark border border-white/10 p-12 max-w-md w-full text-center shadow-2xl">
+          <CheckCircle className="w-14 h-14 text-pjd-teal mx-auto mb-5" />
           <h2 className="text-3xl font-black text-white mb-3">You're On Paul's Radar.</h2>
           <p className="text-white/55 leading-relaxed mb-8">
             Paul will get back to you within 24 hours with a quote based on your spec.
           </p>
           <button
             onClick={onClose}
-            className="bg-pjd-gold text-pjd-blue font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors"
+            className="bg-pjd-teal text-pjd-cream font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors"
           >
             Close
           </button>
@@ -180,7 +180,7 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-md" onClick={onClose} />
-      <div className="relative bg-pjd-blue w-full max-w-3xl h-full md:h-[90vh] md:rounded-xl shadow-2xl overflow-hidden flex flex-col">
+      <div className="relative bg-pjd-dark w-full max-w-3xl h-full md:h-[90vh] md:rounded-xl shadow-2xl overflow-hidden flex flex-col">
 
         {/* Header */}
         <div className="p-6 border-b border-white/10 flex items-center justify-between shrink-0">
@@ -193,7 +193,7 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
             </button>
             <div className="h-4 w-px bg-white/20" />
             <div>
-              <span className="text-pjd-gold text-xs font-bold tracking-widest uppercase">{board.category}</span>
+              <span className="text-pjd-teal text-xs font-bold tracking-widest uppercase">{board.category}</span>
               <span className="text-white font-black ml-2">{board.name}</span>
             </div>
           </div>
@@ -208,11 +208,11 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
             <div>
-              <label className={labelClass}>Name <span className="text-pjd-gold">*</span></label>
+              <label className={labelClass}>Name <span className="text-pjd-teal">*</span></label>
               <input type="text" className={inputClass} placeholder="John Smith" value={form.name} onChange={set('name')} required />
             </div>
             <div>
-              <label className={labelClass}>Email <span className="text-pjd-gold">*</span></label>
+              <label className={labelClass}>Email <span className="text-pjd-teal">*</span></label>
               <input type="email" className={inputClass} placeholder="john@example.com" value={form.email} onChange={set('email')} required />
             </div>
             <div>
@@ -289,7 +289,7 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full flex items-center justify-center gap-3 bg-pjd-gold text-pjd-blue font-black py-5 text-sm tracking-widest uppercase hover:bg-white transition-colors disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-3 bg-pjd-teal text-pjd-cream font-black py-5 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50"
           >
             {status === 'loading' ? (
               <><Loader className="w-4 h-4 animate-spin" /> Sending to Paul...</>

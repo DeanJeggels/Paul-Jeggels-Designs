@@ -15,10 +15,10 @@ const INTERESTS = [
 ];
 
 const inputClass =
-  'w-full bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3 text-sm focus:outline-none focus:border-pjd-gold transition-colors font-body';
+  'w-full bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3 text-sm focus:outline-none focus:border-pjd-teal transition-colors font-body';
 
 const selectClass =
-  'w-full bg-pjd-blue border border-white/15 text-white px-4 py-3 text-sm focus:outline-none focus:border-pjd-gold transition-colors appearance-none font-body';
+  'w-full bg-pjd-dark border border-white/15 text-white px-4 py-3 text-sm focus:outline-none focus:border-pjd-teal transition-colors appearance-none font-body';
 
 const Contact = () => {
   const location = useLocation();
@@ -74,17 +74,17 @@ const Contact = () => {
 
   if (status === 'success') {
     return (
-      <div className="min-h-screen bg-pjd-blue pt-24 flex items-center justify-center px-6">
+      <div className="min-h-screen bg-pjd-dark pt-24 flex items-center justify-center px-6">
         <div className="text-center max-w-md">
-          <CheckCircle className="w-16 h-16 text-pjd-gold mx-auto mb-6" />
+          <CheckCircle className="w-16 h-16 text-pjd-teal mx-auto mb-6" />
           <h2 className="text-4xl font-bold text-white mb-4 font-display">You're On Paul's Radar.</h2>
           <p className="text-white/60 leading-relaxed mb-8 font-body">
             Paul will get back to you within 24 hours. If it's urgent, give him a call on{' '}
-            <a href="tel:+27829609353" className="text-pjd-gold hover:underline">+27 82 960 9353</a>.
+            <a href="tel:+27829609353" className="text-pjd-teal hover:underline">+27 82 960 9353</a>.
           </p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors font-body"
+            className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors font-body"
           >
             Back to Home
           </a>
@@ -94,7 +94,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="min-h-screen bg-pjd-blue pt-24">
+    <div className="min-h-screen bg-pjd-dark pt-24">
       <Helmet>
         <title>Get a Quote — Custom Surfboard Order | Paul Jeggels Designs</title>
         <meta name="description" content="Order your custom surfboard from Paul Jeggels in Jeffreys Bay. Free consultation. Response within 24 hours." />
@@ -106,9 +106,9 @@ const Contact = () => {
         className="relative py-24 overflow-hidden"
         style={{ backgroundImage: "url('/images/paul_jeggels_surfboard_3.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
-        <div className="absolute inset-0 bg-pjd-blue/85" />
+        <div className="absolute inset-0 bg-pjd-dark/85" />
         <div className="relative max-w-7xl mx-auto px-6">
-          <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-4 font-body">Get in Touch</p>
+          <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-4 font-body">Get in Touch</p>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight max-w-3xl font-display">
             Ready for Your<br />Best Session Yet?
           </h1>
@@ -127,7 +127,7 @@ const Contact = () => {
 
             <div>
               <label className="block text-white/70 text-xs font-bold tracking-widest uppercase mb-2 font-body">
-                What are you after?<span className="text-pjd-gold ml-1">*</span>
+                What are you after?<span className="text-pjd-teal ml-1">*</span>
               </label>
               <select className={selectClass} value={form.interest} onChange={set('interest')} required>
                 {INTERESTS.map((i) => (
@@ -139,13 +139,13 @@ const Contact = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block text-white/70 text-xs font-bold tracking-widest uppercase mb-2 font-body">
-                  Your Name<span className="text-pjd-gold ml-1">*</span>
+                  Your Name<span className="text-pjd-teal ml-1">*</span>
                 </label>
                 <input type="text" className={inputClass} placeholder="John Smith" value={form.name} onChange={set('name')} required />
               </div>
               <div>
                 <label className="block text-white/70 text-xs font-bold tracking-widest uppercase mb-2 font-body">
-                  Email Address<span className="text-pjd-gold ml-1">*</span>
+                  Email Address<span className="text-pjd-teal ml-1">*</span>
                 </label>
                 <input type="email" className={inputClass} placeholder="john@example.com" value={form.email} onChange={set('email')} required />
               </div>
@@ -176,7 +176,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="flex items-center justify-center gap-3 bg-pjd-gold text-pjd-blue font-bold px-8 py-5 text-sm tracking-widest uppercase hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer font-body"
+              className="flex items-center justify-center gap-3 bg-pjd-teal text-pjd-dark font-bold px-8 py-5 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer font-body"
             >
               {status === 'loading' ? (
                 <><Loader className="w-4 h-4 animate-spin" /> Sending...</>
@@ -189,18 +189,18 @@ const Contact = () => {
 
           <p className="text-white/30 text-xs mt-6 font-body">
             Want to spec out a custom board in detail? Use the{' '}
-            <a href="/" className="text-pjd-gold hover:underline">board builder on our homepage</a>.
+            <a href="/" className="text-pjd-teal hover:underline">board builder on our homepage</a>.
           </p>
         </div>
 
         {/* Contact info sidebar */}
         <div className="flex flex-col gap-8">
           <div>
-            <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-6 font-body">Direct Contact</p>
+            <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-6 font-body">Direct Contact</p>
             <div className="flex flex-col gap-5">
               <a href="tel:+27829609353" className="flex items-center gap-4 text-white/70 hover:text-white transition-colors group">
-                <div className="w-10 h-10 bg-pjd-gold flex items-center justify-center shrink-0">
-                  <Phone className="w-4 h-4 text-pjd-blue" />
+                <div className="w-10 h-10 bg-pjd-teal flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 text-pjd-dark" />
                 </div>
                 <div>
                   <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-0.5 font-body">Phone</p>
@@ -208,8 +208,8 @@ const Contact = () => {
                 </div>
               </a>
               <a href="https://www.instagram.com/pauljeggelsdesigns" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-white/70 hover:text-white transition-colors">
-                <div className="w-10 h-10 bg-pjd-gold flex items-center justify-center shrink-0">
-                  <Instagram className="w-4 h-4 text-pjd-blue" />
+                <div className="w-10 h-10 bg-pjd-teal flex items-center justify-center shrink-0">
+                  <Instagram className="w-4 h-4 text-pjd-dark" />
                 </div>
                 <div>
                   <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-0.5 font-body">Instagram</p>
@@ -217,8 +217,8 @@ const Contact = () => {
                 </div>
               </a>
               <div className="flex items-start gap-4 text-white/70">
-                <div className="w-10 h-10 bg-pjd-gold flex items-center justify-center shrink-0 mt-0.5">
-                  <MapPin className="w-4 h-4 text-pjd-blue" />
+                <div className="w-10 h-10 bg-pjd-teal flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4 text-pjd-dark" />
                 </div>
                 <div>
                   <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-0.5 font-body">Workshop</p>

@@ -125,18 +125,18 @@ const BoardQuiz = ({ onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6" role="dialog" aria-modal="true" aria-label="Board finder quiz">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-pjd-blue w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl border border-white/10">
+      <div className="relative bg-pjd-dark w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl border border-white/10">
 
         {/* Header */}
-        <div className="sticky top-0 bg-pjd-blue z-10 p-6 border-b border-white/10">
+        <div className="sticky top-0 bg-pjd-dark z-10 p-6 border-b border-white/10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-white font-bold text-lg font-display">Find Your Perfect Board</h2>
-            <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors cursor-pointer" aria-label="Close quiz">
+            <button onClick={onClose} className="p-2 hover:bg-pjd-cream/10 rounded-full transition-colors cursor-pointer" aria-label="Close quiz">
               <X className="w-5 h-5 text-white/60" />
             </button>
           </div>
           <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-            <div className="h-full bg-pjd-gold transition-all duration-500 rounded-full" style={{ width: `${progress}%` }} />
+            <div className="h-full bg-pjd-teal transition-all duration-500 rounded-full" style={{ width: `${progress}%` }} />
           </div>
         </div>
 
@@ -160,7 +160,7 @@ const BoardQuiz = ({ onClose }) => {
                     onClick={() => selectAnswer(QUESTIONS[step].id, opt.value)}
                     className={`text-left p-5 border rounded-lg transition-all cursor-pointer ${
                       answers[QUESTIONS[step].id] === opt.value
-                        ? 'border-pjd-gold bg-pjd-gold/10'
+                        ? 'border-pjd-teal bg-pjd-teal/10'
                         : 'border-white/10 hover:border-white/30 bg-white/5'
                     }`}
                   >
@@ -192,7 +192,7 @@ const BoardQuiz = ({ onClose }) => {
                     placeholder="e.g. 180cm or 5'11"
                     value={body.height}
                     onChange={(e) => setBody((b) => ({ ...b, height: e.target.value }))}
-                    className="w-full bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-gold transition-colors font-body"
+                    className="w-full bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors font-body"
                   />
                 </div>
                 <div>
@@ -202,13 +202,13 @@ const BoardQuiz = ({ onClose }) => {
                     placeholder="e.g. 75kg or 165lbs"
                     value={body.weight}
                     onChange={(e) => setBody((b) => ({ ...b, weight: e.target.value }))}
-                    className="w-full bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-gold transition-colors font-body"
+                    className="w-full bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors font-body"
                   />
                 </div>
               </div>
               <button
                 onClick={() => setStep((s) => s + 1)}
-                className="w-full flex items-center justify-center gap-2 bg-pjd-gold text-pjd-blue font-bold py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors cursor-pointer rounded-lg font-body"
+                className="w-full flex items-center justify-center gap-2 bg-pjd-teal text-pjd-cream font-bold py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors cursor-pointer rounded-lg font-body"
               >
                 See My Recommendation <ArrowRight className="w-4 h-4" />
               </button>
@@ -220,19 +220,19 @@ const BoardQuiz = ({ onClose }) => {
             <div>
               {status === 'success' ? (
                 <div className="text-center py-8">
-                  <CheckCircle className="w-14 h-14 text-pjd-gold mx-auto mb-5" />
+                  <CheckCircle className="w-14 h-14 text-pjd-teal mx-auto mb-5" />
                   <h3 className="text-2xl font-bold text-white mb-3 font-display">You're On Paul's Radar.</h3>
                   <p className="text-white/55 leading-relaxed mb-6 font-body">
                     Paul will get back to you within 24 hours with a quote for your {board.name}.
                   </p>
-                  <button onClick={onClose} className="bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors cursor-pointer rounded-lg font-body">
+                  <button onClick={onClose} className="bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors cursor-pointer rounded-lg font-body">
                     Close
                   </button>
                 </div>
               ) : (
                 <>
                   <div className="mb-8">
-                    <p className="text-pjd-gold text-xs font-bold tracking-[0.2em] uppercase mb-3 font-body">Paul recommends</p>
+                    <p className="text-pjd-teal text-xs font-bold tracking-[0.2em] uppercase mb-3 font-body">Paul recommends</p>
                     <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 font-display">{board.name}</h3>
                   </div>
                   <div className="aspect-[16/9] mb-6 overflow-hidden rounded-lg">
@@ -251,7 +251,7 @@ const BoardQuiz = ({ onClose }) => {
                         value={form.name}
                         onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                         required
-                        className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-gold transition-colors font-body"
+                        className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors font-body"
                       />
                       <input
                         type="email"
@@ -259,7 +259,7 @@ const BoardQuiz = ({ onClose }) => {
                         value={form.email}
                         onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                         required
-                        className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-gold transition-colors font-body"
+                        className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors font-body"
                       />
                     </div>
 
@@ -273,7 +273,7 @@ const BoardQuiz = ({ onClose }) => {
                     <button
                       type="submit"
                       disabled={status === 'loading'}
-                      className="w-full flex items-center justify-center gap-3 bg-pjd-gold text-pjd-blue font-bold py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors disabled:opacity-50 cursor-pointer rounded-lg font-body"
+                      className="w-full flex items-center justify-center gap-3 bg-pjd-teal text-pjd-cream font-bold py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50 cursor-pointer rounded-lg font-body"
                     >
                       {status === 'loading' ? (
                         <><Loader className="w-4 h-4 animate-spin" /> Sending...</>

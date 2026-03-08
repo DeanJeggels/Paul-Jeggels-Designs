@@ -21,7 +21,7 @@ const CONDITION_COLORS = {
 const BoardCard = ({ board }) => (
   <div className={`group relative bg-black border border-white/10 flex flex-col overflow-hidden ${board.sold ? 'opacity-50' : ''}`}>
     {/* Image */}
-    <div className="aspect-[4/3] overflow-hidden bg-pjd-blue/50 relative">
+    <div className="aspect-[4/3] overflow-hidden bg-pjd-dark/50 relative">
       {board.image_urls && board.image_urls.length > 0 ? (
         <img
           src={board.image_urls[0]}
@@ -40,8 +40,8 @@ const BoardCard = ({ board }) => (
         </div>
       )}
       {board.featured && !board.sold && (
-        <div className="absolute top-3 left-3 bg-pjd-gold px-3 py-1">
-          <span className="text-pjd-blue font-black text-xs tracking-widest uppercase">Featured</span>
+        <div className="absolute top-3 left-3 bg-pjd-teal px-3 py-1">
+          <span className="text-pjd-dark font-black text-xs tracking-widest uppercase">Featured</span>
         </div>
       )}
       {board.condition && !board.sold && (
@@ -55,7 +55,7 @@ const BoardCard = ({ board }) => (
     <div className="p-5 flex flex-col flex-1">
       <h3 className="text-white font-black text-lg mb-1">{board.name}</h3>
       {board.dimensions && (
-        <p className="text-pjd-gold text-xs font-bold tracking-widest uppercase mb-3">{board.dimensions}</p>
+        <p className="text-pjd-teal text-xs font-bold tracking-widest uppercase mb-3">{board.dimensions}</p>
       )}
       {board.description && (
         <p className="text-white/55 text-sm leading-relaxed mb-4 flex-1">{board.description}</p>
@@ -70,7 +70,7 @@ const BoardCard = ({ board }) => (
           <Link
             to="/contact"
             state={{ interest: 'stock', boardName: board.name }}
-            className="flex items-center gap-2 bg-pjd-gold text-pjd-blue font-black text-xs tracking-widest uppercase px-5 py-3 hover:bg-white transition-colors group"
+            className="flex items-center gap-2 bg-pjd-teal text-pjd-dark font-black text-xs tracking-widest uppercase px-5 py-3 hover:bg-pjd-cream transition-colors group"
           >
             Enquire <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
           </Link>
@@ -89,7 +89,7 @@ const EmptyState = () => (
     </p>
     <Link
       to="/contact"
-      className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors"
+      className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors"
     >
       Contact Us
     </Link>
@@ -125,7 +125,7 @@ const Stock = () => {
   const displayed = showSold ? boards : boards.filter((b) => !b.sold);
 
   return (
-    <div className="min-h-screen bg-pjd-blue pt-24">
+    <div className="min-h-screen bg-pjd-dark pt-24">
       <Helmet>
         <title>Stock Boards — Pre-Shaped Surfboards Available Now | PJD</title>
         <meta name="description" content="Quality second-hand and pre-shaped surfboards by Paul Jeggels. All boards inspected and repaired. Jeffreys Bay." />
@@ -134,7 +134,7 @@ const Stock = () => {
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-4">Available Now</p>
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-4">Available Now</p>
         <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
           Stock Boards.
         </h1>
@@ -166,7 +166,7 @@ const Stock = () => {
         ) : error ? (
           <div className="text-center py-24">
             <p className="text-white/40 mb-4">Couldn't load boards right now.</p>
-            <a href="tel:+27829609353" className="inline-flex items-center gap-2 text-pjd-gold text-sm font-bold">
+            <a href="tel:+27829609353" className="inline-flex items-center gap-2 text-pjd-teal text-sm font-bold">
               <Phone className="w-4 h-4" /> Call Paul directly: +27 82 960 9353
             </a>
           </div>
@@ -195,7 +195,7 @@ const Stock = () => {
             </a>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group cursor-pointer font-body"
+              className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group cursor-pointer font-body"
             >
               Take the Board Quiz <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>

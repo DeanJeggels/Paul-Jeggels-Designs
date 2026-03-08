@@ -29,9 +29,9 @@ const STEPS = [
 ];
 
 const HowItWorks = () => (
-  <section className="bg-pjd-blue py-20 border-y border-white/10">
+  <section className="bg-pjd-dark py-20 border-y border-white/10">
     <div className="max-w-7xl mx-auto px-6">
-      <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-3 text-center font-body">
+      <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-3 text-center font-body">
         How It Works
       </p>
       <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16 font-display">
@@ -41,10 +41,10 @@ const HowItWorks = () => (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {STEPS.map(({ icon: Icon, number, title, description }) => (
           <div key={number} className="relative text-center group">
-            <div className="w-14 h-14 bg-pjd-gold/10 border border-pjd-gold/30 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-pjd-gold/20 transition-colors">
-              <Icon className="w-6 h-6 text-pjd-gold" />
+            <div className="w-14 h-14 bg-pjd-teal/10 border border-pjd-teal/30 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-pjd-teal/20 transition-colors">
+              <Icon className="w-6 h-6 text-pjd-teal" />
             </div>
-            <span className="text-pjd-gold/40 text-xs font-bold tracking-widest uppercase font-body">{number}</span>
+            <span className="text-pjd-teal/40 text-xs font-bold tracking-widest uppercase font-body">{number}</span>
             <h3 className="text-white font-bold text-lg mt-2 mb-3 font-display">{title}</h3>
             <p className="text-white/50 text-sm leading-relaxed font-body">{description}</p>
           </div>
