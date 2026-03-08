@@ -74,7 +74,7 @@ const BoardQuiz = ({ onClose }) => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [body, setBody] = useState({ height: '', weight: '' });
-  const [form, setForm] = useState({ name: '', email: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '' });
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -95,6 +95,7 @@ const BoardQuiz = ({ onClose }) => {
     const payload = {
       name: form.name,
       email: form.email,
+      phone: form.phone || null,
       interest: 'custom',
       board_type: recommendation,
       height_cm: body.height,
@@ -257,6 +258,13 @@ const BoardQuiz = ({ onClose }) => {
                         onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                         required
                         className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors font-body"
+                      />
+                      <input
+                        type="tel"
+                        placeholder="Phone number"
+                        value={form.phone}
+                        onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+                        className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors sm:col-span-2 font-body"
                       />
                     </div>
 
