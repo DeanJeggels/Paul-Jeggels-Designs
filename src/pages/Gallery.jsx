@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const GALLERY_IMAGES = [
   { src: '/images/paul_jeggels_design_1.jpg', label: 'Custom Shape' },
@@ -44,12 +44,6 @@ const GALLERY_IMAGES = [
   { src: '/images/paul_jeggels_shaping_6.jpg', label: 'Shaping' },
 ];
 
-const VIDEOS = [
-  { src: '/images/paul_jeggels_glassing_2.mp4', label: 'Glassing Process' },
-  { src: '/images/paul_jeggels_glassing_3.mp4', label: 'Glassing Process' },
-  { src: '/images/paul_jeggels_glassing_4.mp4', label: 'Shaping Bay' },
-];
-
 const Gallery = () => {
   const [lightbox, setLightbox] = useState(null);
 
@@ -73,7 +67,7 @@ const Gallery = () => {
       </div>
 
       {/* Photo grid */}
-      <div className="max-w-7xl mx-auto px-6 pb-12">
+      <div className="max-w-7xl mx-auto px-6 pb-24">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {GALLERY_IMAGES.map((img, i) => (
             <button
@@ -93,25 +87,6 @@ const Gallery = () => {
                 </span>
               </div>
             </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Videos */}
-      <div className="max-w-7xl mx-auto px-6 pb-24">
-        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-8">Process Videos</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {VIDEOS.map((v, i) => (
-            <div key={i} className="relative aspect-video overflow-hidden bg-black">
-              <video
-                src={v.src}
-                controls
-                playsInline
-                preload="none"
-                className="w-full h-full object-cover"
-                poster="/images/paul_jeggels_glassing_1.jpg"
-              />
-            </div>
           ))}
         </div>
       </div>

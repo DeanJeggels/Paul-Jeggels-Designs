@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { Phone, Instagram, MapPin, CheckCircle, AlertCircle, Loader, ArrowRight } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
-const N8N_WEBHOOK = 'https://n8n-uq4a.onrender.com/webhook/pjd-new-lead';
+const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
 const INTERESTS = [
   { value: 'custom', label: 'Custom Surfboard' },
@@ -48,23 +47,13 @@ const Contact = () => {
     setErrorMsg('');
 
     try {
-      const { data, error } = await supabase
-        .from('pjd_leads')
-        .insert([{ ...form, source: 'website' }])
-        .select();
-
-      if (error) throw new Error(error.message);
-
-      try {
-        await fetch(N8N_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...form, id: data?.[0]?.id }),
-        });
-      } catch {
-        // Webhook failure is non-blocking
-      }
-
+      const res = await fetch(SUBMIT_LEAD_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, source: 'website' }),
+      });
+      const result = await res.json();
+      if (!res.ok) throw new Error(result.error || 'Something went wrong.');
       setStatus('success');
     } catch (err) {
       setStatus('error');
