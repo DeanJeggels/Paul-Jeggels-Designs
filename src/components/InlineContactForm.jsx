@@ -12,7 +12,7 @@ const INTERESTS = [
 ];
 
 const InlineContactForm = () => {
-  const [form, setForm] = useState({ name: '', email: '', interest: 'custom', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', interest: 'custom', message: '' });
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -85,6 +85,13 @@ const InlineContactForm = () => {
             onChange={set('email')}
             required
             className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors font-body"
+          />
+          <input
+            type="tel"
+            placeholder="Phone number"
+            value={form.phone}
+            onChange={set('phone')}
+            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors sm:col-span-2 font-body"
           />
           <select
             value={form.interest}
