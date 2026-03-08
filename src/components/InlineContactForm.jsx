@@ -47,13 +47,13 @@ const InlineContactForm = () => {
   if (status === 'success') {
     return (
       <section className="relative py-24 overflow-hidden" style={{ backgroundImage: "url('/images/paul_jeggels_surfing.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="absolute inset-0 bg-pjd-blue/85" />
+        <div className="absolute inset-0 bg-pjd-dark/85" />
         <div className="relative max-w-xl mx-auto px-6 text-center">
-          <CheckCircle className="w-14 h-14 text-pjd-gold mx-auto mb-5" />
+          <CheckCircle className="w-14 h-14 text-pjd-teal mx-auto mb-5" />
           <h2 className="text-3xl font-bold text-white mb-3 font-display">You're On Paul's Radar.</h2>
           <p className="text-white/55 leading-relaxed font-body">
             Paul will get back to you within 24 hours. For anything urgent, call{' '}
-            <a href="tel:+27829609353" className="text-pjd-gold hover:underline">+27 82 960 9353</a>.
+            <a href="tel:+27829609353" className="text-pjd-teal hover:underline">+27 82 960 9353</a>.
           </p>
         </div>
       </section>
@@ -65,9 +65,9 @@ const InlineContactForm = () => {
       className="relative py-24 overflow-hidden"
       style={{ backgroundImage: "url('/images/paul_jeggels_surfing.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className="absolute inset-0 bg-pjd-blue/85" />
+      <div className="absolute inset-0 bg-pjd-dark/85" />
       <div className="relative max-w-2xl mx-auto px-6">
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-3 text-center font-body">
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-3 text-center font-body">
           Not ready for the quiz?
         </p>
         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4 font-display">
@@ -84,7 +84,7 @@ const InlineContactForm = () => {
             value={form.name}
             onChange={set('name')}
             required
-            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-gold transition-colors font-body"
+            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors font-body"
           />
           <input
             type="email"
@@ -92,12 +92,12 @@ const InlineContactForm = () => {
             value={form.email}
             onChange={set('email')}
             required
-            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-gold transition-colors font-body"
+            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors font-body"
           />
           <select
             value={form.interest}
             onChange={set('interest')}
-            className="bg-pjd-blue border border-white/15 text-white px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-gold transition-colors appearance-none sm:col-span-2 font-body"
+            className="bg-pjd-dark border border-white/15 text-white px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors appearance-none sm:col-span-2 font-body"
           >
             {INTERESTS.map((i) => (
               <option key={i.value} value={i.value}>{i.label}</option>
@@ -107,7 +107,7 @@ const InlineContactForm = () => {
             placeholder="What's on your mind?"
             value={form.message}
             onChange={set('message')}
-            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-gold transition-colors resize-none h-24 sm:col-span-2 font-body"
+            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors resize-none h-24 sm:col-span-2 font-body"
           />
 
           {status === 'error' && (
@@ -120,7 +120,7 @@ const InlineContactForm = () => {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="sm:col-span-2 flex items-center justify-center gap-3 bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors disabled:opacity-50 cursor-pointer font-body"
+            className="sm:col-span-2 flex items-center justify-center gap-3 bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50 cursor-pointer font-body"
           >
             {status === 'loading' ? (
               <><Loader className="w-4 h-4 animate-spin" /> Sending...</>

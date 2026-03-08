@@ -25,7 +25,7 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-pjd-blue/95 backdrop-blur-md shadow-xl border-b border-white/10' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-pjd-dark/95 backdrop-blur-md shadow-xl border-b border-white/10' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* Logo */}
@@ -33,11 +33,11 @@ const Navbar = () => {
           <img
             src="/images/pjd_logo.jpeg"
             alt="PJD Logo"
-            className="w-10 h-10 rounded-full border border-white/20 object-contain bg-white group-hover:border-pjd-gold transition-colors"
+            className="w-10 h-10 rounded-full border border-white/20 object-contain bg-white group-hover:border-pjd-teal transition-colors"
           />
           <div className="hidden sm:block">
             <p className="text-white font-black text-sm tracking-widest uppercase leading-none">Paul Jeggels</p>
-            <p className="text-pjd-gold text-xs tracking-widest uppercase leading-none">Designs</p>
+            <p className="text-pjd-teal text-xs tracking-widest uppercase leading-none">Designs</p>
           </div>
         </Link>
 
@@ -47,14 +47,14 @@ const Navbar = () => {
             <Link
               key={link.href}
               to={link.href}
-              className={`text-sm font-bold tracking-widest uppercase transition-colors ${location.pathname === link.href ? 'text-pjd-gold' : 'text-white/70 hover:text-white'}`}
+              className={`text-sm font-bold tracking-widest uppercase transition-colors ${location.pathname === link.href ? 'text-pjd-teal' : 'text-white/70 hover:text-white'}`}
             >
               {link.label}
             </Link>
           ))}
           <Link
             to="/contact"
-            className="bg-pjd-gold text-pjd-blue font-black text-sm tracking-widest uppercase px-6 py-3 hover:bg-white transition-colors"
+            className="bg-pjd-teal text-pjd-cream font-black text-sm tracking-widest uppercase px-6 py-3 hover:bg-pjd-cream transition-colors"
           >
             Get a Quote
           </Link>
@@ -72,19 +72,19 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-pjd-blue border-t border-white/10 px-6 py-6 flex flex-col gap-6">
+        <div className="md:hidden bg-pjd-dark border-t border-white/10 px-6 py-6 flex flex-col gap-6">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className={`text-sm font-bold tracking-widest uppercase ${location.pathname === link.href ? 'text-pjd-gold' : 'text-white'}`}
+              className={`text-sm font-bold tracking-widest uppercase ${location.pathname === link.href ? 'text-pjd-teal' : 'text-white'}`}
             >
               {link.label}
             </Link>
           ))}
           <Link
             to="/contact"
-            className="bg-pjd-gold text-pjd-blue font-black text-sm tracking-widest uppercase px-6 py-4 text-center"
+            className="bg-pjd-teal text-pjd-cream font-black text-sm tracking-widest uppercase px-6 py-4 text-center"
           >
             Get a Quote
           </Link>

@@ -72,7 +72,7 @@ const SERVICES = [
 ];
 
 const Services = () => (
-  <div className="min-h-screen bg-pjd-blue pt-24">
+  <div className="min-h-screen bg-pjd-dark pt-24">
     <Helmet>
       <title>Services — Custom Boards, Ding Repair & Fins | Paul Jeggels Designs</title>
       <meta name="description" content="Custom surfboards from R5,000, ding repairs from R500, custom fins from R800. Hand-shaped in Jeffreys Bay by Paul Jeggels." />
@@ -84,9 +84,9 @@ const Services = () => (
       className="relative py-28 overflow-hidden"
       style={{ backgroundImage: "url('/images/paul_jeggels_banner_5.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className="absolute inset-0 bg-pjd-blue/80" />
+      <div className="absolute inset-0 bg-pjd-dark/80" />
       <div className="relative max-w-7xl mx-auto px-6">
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-4">What We Offer</p>
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-4">What We Offer</p>
         <h1 className="text-5xl md:text-7xl font-black text-white leading-tight max-w-3xl">
           Whatever Your<br />Board Needs.
         </h1>
@@ -111,24 +111,24 @@ const Services = () => (
                 alt={s.title}
                 className="w-full aspect-[4/3] object-cover"
               />
-              <div className="absolute top-4 left-4 bg-pjd-gold p-3">
-                <s.icon className="w-5 h-5 text-pjd-blue" />
+              <div className="absolute top-4 left-4 bg-pjd-teal p-3">
+                <s.icon className="w-5 h-5 text-pjd-dark" />
               </div>
             </div>
 
             {/* Content */}
             <div>
-              <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-4">{s.tagline}</p>
+              <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-4">{s.tagline}</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight font-display">{s.title}</h2>
               {s.price && (
-                <p className="text-pjd-gold text-sm font-bold mb-6 font-body">{s.price}</p>
+                <p className="text-pjd-teal text-sm font-bold mb-6 font-body">{s.price}</p>
               )}
               <p className="text-white/60 leading-relaxed mb-8">{s.description}</p>
 
               <ul className="flex flex-col gap-3 mb-10">
                 {s.detail.map((d) => (
                   <li key={d} className="flex items-start gap-3 text-white/70 text-sm">
-                    <span className="w-1.5 h-1.5 bg-pjd-gold rounded-full mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-pjd-teal rounded-full mt-2 shrink-0" />
                     {d}
                   </li>
                 ))}
@@ -136,7 +136,7 @@ const Services = () => (
 
               <Link
                 to={s.href || '/contact'}
-                className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group"
+                className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group"
               >
                 {s.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -149,7 +149,7 @@ const Services = () => (
     {/* Process strip */}
     <div className="bg-black py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-10 text-center">How It Works</p>
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-10 text-center">How It Works</p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {[
             { step: '01', title: 'You Get in Touch', desc: 'Fill in the form or give Paul a call. Tell him what you need.' },
@@ -158,7 +158,7 @@ const Services = () => (
             { step: '04', title: 'You Go Surf', desc: "Pick up your board and get in the water. That's the whole point." },
           ].map(({ step, title, desc }) => (
             <div key={step} className="flex flex-col gap-4">
-              <p className="text-pjd-gold text-5xl font-black leading-none">{step}</p>
+              <p className="text-pjd-teal text-5xl font-black leading-none">{step}</p>
               <h3 className="text-white font-black text-lg">{title}</h3>
               <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
             </div>

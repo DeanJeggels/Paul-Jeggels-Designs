@@ -85,7 +85,7 @@ const ChatAssistant = ({ onOpenQuiz }) => {
             placeholder="Ask anything about custom boards..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="w-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/35 pl-12 pr-4 py-4 text-base rounded-lg focus:outline-none focus:border-pjd-gold focus:bg-white/15 transition-all font-body"
+            className="w-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/35 pl-12 pr-4 py-4 text-base rounded-lg focus:outline-none focus:border-pjd-teal focus:bg-white/15 transition-all font-body"
           />
         </div>
       </form>
@@ -94,7 +94,7 @@ const ChatAssistant = ({ onOpenQuiz }) => {
 
   // Expanded chat panel
   return (
-    <div className="max-w-xl w-full bg-pjd-blue/80 backdrop-blur-xl border border-white/15 rounded-lg shadow-2xl overflow-hidden">
+    <div className="max-w-xl w-full bg-pjd-dark/80 backdrop-blur-xl border border-white/15 rounded-lg shadow-2xl overflow-hidden">
       {/* Chat header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
         <div className="flex items-center gap-2">
@@ -117,7 +117,7 @@ const ChatAssistant = ({ onOpenQuiz }) => {
             <p className="text-white/30 text-sm font-body">Ask me anything about Paul's boards, pricing, or the process.</p>
             <button
               onClick={onOpenQuiz}
-              className="text-pjd-gold text-xs font-bold tracking-widest uppercase mt-3 hover:text-white transition-colors cursor-pointer font-body"
+              className="text-pjd-teal text-xs font-bold tracking-widest uppercase mt-3 hover:text-white transition-colors cursor-pointer font-body"
             >
               Or take the board quiz →
             </button>
@@ -127,14 +127,14 @@ const ChatAssistant = ({ onOpenQuiz }) => {
         {messages.map((msg, i) => (
           <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             {msg.role === 'assistant' && (
-              <div className="w-6 h-6 bg-pjd-gold/20 rounded-full flex items-center justify-center shrink-0 mt-1">
-                <Bot className="w-3 h-3 text-pjd-gold" />
+              <div className="w-6 h-6 bg-pjd-teal/20 rounded-full flex items-center justify-center shrink-0 mt-1">
+                <Bot className="w-3 h-3 text-pjd-teal" />
               </div>
             )}
             <div
               className={`max-w-[80%] px-3 py-2 rounded-lg text-sm font-body ${
                 msg.role === 'user'
-                  ? 'bg-pjd-gold/20 text-white'
+                  ? 'bg-pjd-teal/20 text-white'
                   : 'bg-white/5 text-white/80'
               }`}
             >
@@ -150,11 +150,11 @@ const ChatAssistant = ({ onOpenQuiz }) => {
 
         {isLoading && (
           <div className="flex gap-2 items-start">
-            <div className="w-6 h-6 bg-pjd-gold/20 rounded-full flex items-center justify-center shrink-0">
-              <Bot className="w-3 h-3 text-pjd-gold" />
+            <div className="w-6 h-6 bg-pjd-teal/20 rounded-full flex items-center justify-center shrink-0">
+              <Bot className="w-3 h-3 text-pjd-teal" />
             </div>
             <div className="bg-white/5 px-3 py-2 rounded-lg">
-              <Loader className="w-4 h-4 text-pjd-gold animate-spin" />
+              <Loader className="w-4 h-4 text-pjd-teal animate-spin" />
             </div>
           </div>
         )}
@@ -171,12 +171,12 @@ const ChatAssistant = ({ onOpenQuiz }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={isLoading}
-            className="flex-1 bg-white/5 border border-white/10 text-white placeholder-white/25 px-3 py-2.5 text-sm rounded-lg focus:outline-none focus:border-pjd-gold transition-colors font-body"
+            className="flex-1 bg-white/5 border border-white/10 text-white placeholder-white/25 px-3 py-2.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors font-body"
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="bg-pjd-gold text-pjd-blue p-2.5 rounded-lg hover:bg-white transition-colors disabled:opacity-30 cursor-pointer"
+            className="bg-pjd-teal text-pjd-cream p-2.5 rounded-lg hover:bg-white transition-colors disabled:opacity-30 cursor-pointer"
             aria-label="Send message"
           >
             <Send className="w-4 h-4" />

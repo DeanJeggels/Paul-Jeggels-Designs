@@ -13,7 +13,7 @@ import InlineContactForm from '../components/InlineContactForm';
 // ─── HERO ────────────────────────────────────────────────────────────────────
 
 const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
-    <section className="relative w-full min-h-screen bg-pjd-blue overflow-hidden flex items-center">
+    <section className="relative w-full min-h-screen bg-pjd-dark overflow-hidden flex items-center">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -21,7 +21,7 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
           alt="Paul Jeggels shaping a surfboard"
           className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-pjd-blue via-pjd-blue/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-pjd-dark via-pjd-dark/60 to-black/30" />
       </div>
 
       {/* Content */}
@@ -36,13 +36,13 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
           />
           <div className="hidden sm:block">
             <p className="text-white font-bold text-sm tracking-widest uppercase leading-none font-body">Paul Jeggels</p>
-            <p className="text-pjd-gold text-xs tracking-widest uppercase leading-none font-body">Designs</p>
+            <p className="text-pjd-teal text-xs tracking-widest uppercase leading-none font-body">Designs</p>
           </div>
         </div>
 
         {/* Headline */}
         <div className="max-w-3xl mb-10">
-          <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-5 font-body">
+          <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-5 font-body">
             Hand-Shaped in Jeffreys Bay
           </p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-[0.95] font-display">
@@ -63,7 +63,7 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
         <div className="flex flex-col sm:flex-row items-start gap-4">
           <button
             onClick={onOpenQuiz}
-            className="flex items-center gap-3 bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group shadow-xl cursor-pointer rounded-lg font-body"
+            className="flex items-center gap-3 bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group shadow-xl cursor-pointer rounded-lg font-body"
           >
             Find My Board <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
@@ -96,18 +96,18 @@ const GalleryTeaser = ({ onOpenQuiz }) => {
   ];
 
   return (
-    <section className="bg-pjd-blue py-24">
+    <section className="bg-pjd-cream py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-3 font-body">The Work</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight font-display">
+            <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-3 font-body">The Work</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-pjd-dark leading-tight font-display">
               Every Shape Has<br />a Story.
             </h2>
           </div>
           <Link
             to="/gallery"
-            className="flex items-center gap-2 text-pjd-gold text-sm font-bold tracking-widest uppercase hover:text-white transition-colors group font-body"
+            className="flex items-center gap-2 text-pjd-teal text-sm font-bold tracking-widest uppercase hover:text-pjd-dark transition-colors group font-body"
           >
             View Full Gallery <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -129,7 +129,7 @@ const GalleryTeaser = ({ onOpenQuiz }) => {
         <div className="text-center mt-10">
           <button
             onClick={onOpenQuiz}
-            className="inline-flex items-center gap-2 text-pjd-gold text-sm font-bold tracking-widest uppercase hover:text-white transition-colors cursor-pointer font-body"
+            className="inline-flex items-center gap-2 text-pjd-teal text-sm font-bold tracking-widest uppercase hover:text-pjd-dark transition-colors cursor-pointer font-body"
           >
             Want something like this? Take the quiz <ArrowRight className="w-4 h-4" />
           </button>
@@ -142,7 +142,7 @@ const GalleryTeaser = ({ onOpenQuiz }) => {
 // ─── ABOUT TEASER ─────────────────────────────────────────────────────────────
 
 const AboutTeaser = () => (
-  <section className="bg-black py-24">
+  <section className="bg-pjd-dark py-24">
     <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div className="relative">
         <img
@@ -151,18 +151,18 @@ const AboutTeaser = () => (
           className="w-full aspect-[4/5] object-cover"
           loading="lazy"
         />
-        <div className="absolute -bottom-4 -right-4 bg-pjd-gold px-6 py-4">
-          <p className="text-pjd-blue font-bold text-xs tracking-widest uppercase leading-none font-body">As featured in</p>
-          <p className="text-pjd-blue font-bold text-xl tracking-tight font-display">Zigzag Magazine</p>
+        <div className="absolute -bottom-4 -right-4 bg-pjd-teal px-6 py-4">
+          <p className="text-pjd-dark font-bold text-xs tracking-widest uppercase leading-none font-body">As featured in</p>
+          <p className="text-pjd-dark font-bold text-xl tracking-tight font-display">Zigzag Magazine</p>
         </div>
       </div>
 
       <div>
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-5 font-body">The Shaper</p>
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-5 font-body">The Shaper</p>
         <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6 font-display">
           Most Boards Are Built<br />
           for Everyone.<br />
-          <span className="text-pjd-gold">Paul's Aren't.</span>
+          <span className="text-pjd-teal">Paul's Aren't.</span>
         </h2>
         <p className="text-white/60 leading-relaxed mb-4 font-body">
           For over 40 years, Paul Jeggels has been shaping surfboards from his workshop in Jeffreys Bay — one of the world's premier surf destinations. He knows every break in town and shapes every board himself.
@@ -172,7 +172,7 @@ const AboutTeaser = () => (
         </p>
         <Link
           to="/about"
-          className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-white transition-colors group cursor-pointer font-body"
+          className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group cursor-pointer font-body"
         >
           Meet Paul <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>

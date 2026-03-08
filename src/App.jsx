@@ -28,7 +28,7 @@ const Layout = () => {
   const showNav = !HIDE_NAV_ON.includes(pathname);
 
   return (
-    <div className="min-h-screen w-full bg-pjd-blue">
+    <div className="min-h-screen w-full bg-pjd-dark">
       <ScrollToTop />
       {showNav && <Navbar />}
       <main>

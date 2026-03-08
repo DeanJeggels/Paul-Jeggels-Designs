@@ -4,7 +4,7 @@ import { Instagram, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t border-white/10">
+    <footer className="bg-pjd-dark border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
 
         {/* Brand */}
@@ -13,7 +13,7 @@ const Footer = () => {
             <img src="/images/pjd_logo.jpeg" alt="PJD Logo" className="w-10 h-10 rounded-full border border-white/20 object-contain bg-white" />
             <div>
               <p className="text-white font-black text-sm tracking-widest uppercase leading-none">Paul Jeggels</p>
-              <p className="text-pjd-gold text-xs tracking-widest uppercase leading-none">Designs</p>
+              <p className="text-pjd-teal text-xs tracking-widest uppercase leading-none">Designs</p>
             </div>
           </div>
           <p className="text-white/50 text-sm leading-relaxed max-w-xs">
@@ -23,7 +23,7 @@ const Footer = () => {
 
         {/* Links */}
         <div>
-          <p className="text-pjd-gold text-xs font-bold tracking-widest uppercase mb-5">Navigate</p>
+          <p className="text-pjd-teal text-xs font-bold tracking-widest uppercase mb-5">Navigate</p>
           <div className="flex flex-col gap-3">
             {[
               ['Gallery', '/gallery'],
@@ -41,10 +41,10 @@ const Footer = () => {
 
         {/* Contact */}
         <div>
-          <p className="text-pjd-gold text-xs font-bold tracking-widest uppercase mb-5">Contact</p>
+          <p className="text-pjd-teal text-xs font-bold tracking-widest uppercase mb-5">Contact</p>
           <div className="flex flex-col gap-4">
             <a href="tel:+27829609353" className="flex items-center gap-3 text-white/60 hover:text-white text-sm transition-colors group">
-              <Phone className="w-4 h-4 text-pjd-gold" />
+              <Phone className="w-4 h-4 text-pjd-teal" />
               +27 82 960 9353
             </a>
             <a
@@ -53,11 +53,11 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-white/60 hover:text-white text-sm transition-colors"
             >
-              <Instagram className="w-4 h-4 text-pjd-gold" />
+              <Instagram className="w-4 h-4 text-pjd-teal" />
               @pauljeggelsdesigns
             </a>
             <div className="flex items-start gap-3 text-white/60 text-sm">
-              <MapPin className="w-4 h-4 text-pjd-gold mt-0.5 shrink-0" />
+              <MapPin className="w-4 h-4 text-pjd-teal mt-0.5 shrink-0" />
               <span>15 Dageraad Street<br />Jeffreys Bay 6330</span>
             </div>
           </div>

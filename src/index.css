@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pjd-blue: #0a192f;
-  --color-pjd-white: #e6f1ff;
-  --color-pjd-gold: #ffd700;
-  --color-pjd-gold-dark: #CA8A04;
+  --color-pjd-dark: #1C1917;
+  --color-pjd-cream: #F5F0E1;
+  --color-pjd-teal: #0891B2;
+  --color-pjd-terra: #C67B5C;
+  --color-pjd-stone: #44403C;
   --font-display: 'Bodoni Moda', serif;
-  --font-body: 'Jost', sans-serif;
+  --font-body: 'Cabin', sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-pjd-blue text-pjd-white font-body antialiased;
+    @apply bg-pjd-cream text-pjd-dark font-body antialiased;
   }
   h1, h2, h3 {
     font-family: var(--font-display);
@@ -20,7 +21,7 @@
 
 /* Visible focus rings for keyboard navigation */
 :focus-visible {
-  outline: 2px solid var(--color-pjd-gold);
+  outline: 2px solid var(--color-pjd-teal);
   outline-offset: 2px;
 }
 

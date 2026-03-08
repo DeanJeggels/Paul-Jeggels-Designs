@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Quote } from 'lucide-react';
 
 const About = () => (
-  <div className="min-h-screen bg-pjd-blue pt-24">
+  <div className="min-h-screen bg-pjd-cream pt-24">
     <Helmet>
       <title>About Paul Jeggels — Master Surfboard Shaper, Jeffreys Bay</title>
       <meta name="description" content="Meet Paul Jeggels, Jeffreys Bay's master surfboard shaper with 40+ years and 4,000+ hand-shaped boards. Featured in Zigzag Magazine." />
@@ -18,9 +18,9 @@ const About = () => (
         alt="Paul Jeggels in the shaping bay"
         className="w-full h-full object-cover opacity-60"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-pjd-blue via-pjd-blue/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-pjd-dark via-pjd-dark/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-6 pb-16">
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-3">The Shaper</p>
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-3">The Shaper</p>
         <h1 className="text-5xl md:text-7xl font-black text-white leading-tight">
           Paul Jeggels.
         </h1>
@@ -31,13 +31,13 @@ const About = () => (
     <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
       <div>
-        <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-8">
+        <h2 className="text-3xl md:text-4xl font-black text-pjd-dark leading-tight mb-8">
           Most Boards Are Built<br />
           for Everyone.<br />
-          <span className="text-pjd-gold">Paul's Aren't.</span>
+          <span className="text-pjd-teal">Paul's Aren't.</span>
         </h2>
 
-        <div className="space-y-5 text-white/65 leading-relaxed">
+        <div className="space-y-5 text-pjd-stone leading-relaxed">
           <p>
             Paul Jeggels has been shaping surfboards out of Jeffreys Bay for over 40 years. Not on an assembly line. Not from a factory in China. Right here in J-Bay — one of the best surf towns in the world.
           </p>
@@ -52,12 +52,12 @@ const About = () => (
           </p>
         </div>
 
-        <div className="mt-10 p-6 border border-pjd-gold/30 bg-pjd-gold/5">
-          <Quote className="w-6 h-6 text-pjd-gold mb-3" />
-          <p className="text-white/80 italic leading-relaxed mb-3">
+        <div className="mt-10 p-6 border border-pjd-teal/30 bg-pjd-teal/5">
+          <Quote className="w-6 h-6 text-pjd-teal mb-3" />
+          <p className="text-pjd-dark/80 italic leading-relaxed mb-3">
             "You wouldn't wear someone else's prescription glasses in the water. Why ride someone else's board?"
           </p>
-          <p className="text-pjd-gold text-xs font-bold tracking-widest uppercase">— Paul Jeggels</p>
+          <p className="text-pjd-teal text-xs font-bold tracking-widest uppercase">— Paul Jeggels</p>
         </div>
       </div>
 
@@ -84,11 +84,11 @@ const About = () => (
     </div>
 
     {/* Zigzag feature */}
-    <div className="bg-black py-20">
+    <div className="bg-pjd-dark py-20">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <div className="inline-block bg-pjd-gold px-4 py-2 mb-6">
-            <p className="text-pjd-blue font-black text-xs tracking-widest uppercase">As Featured In</p>
+          <div className="inline-block bg-pjd-teal px-4 py-2 mb-6">
+            <p className="text-pjd-cream font-black text-xs tracking-widest uppercase">As Featured In</p>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
             Zigzag Magazine.
@@ -108,9 +108,9 @@ const About = () => (
     </div>
 
     {/* Old shots / Heritage */}
-    <div className="bg-black py-20">
+    <div className="bg-pjd-dark py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-6">The Archives</p>
+        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-6">The Archives</p>
         <h2 className="text-3xl md:text-4xl font-black text-white mb-10">Where It All Started.</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {[1, 2, 3, 4, 5, 6].map((n) => (
@@ -128,13 +128,13 @@ const About = () => (
     </div>
 
     {/* CTA */}
-    <div className="py-20 text-center bg-pjd-blue border-t border-white/10">
-      <p className="text-pjd-gold text-xs font-bold tracking-[0.25em] uppercase mb-4">Ready to order?</p>
-      <h2 className="text-3xl md:text-5xl font-black text-white mb-6">Get Your Board Shaped by Paul.</h2>
-      <p className="text-white/50 max-w-md mx-auto mb-10">He'll ask the right questions. You'll get the right board.</p>
+    <div className="py-20 text-center bg-pjd-cream border-t border-pjd-dark/10">
+      <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-4">Ready to order?</p>
+      <h2 className="text-3xl md:text-5xl font-black text-pjd-dark mb-6">Get Your Board Shaped by Paul.</h2>
+      <p className="text-pjd-stone max-w-md mx-auto mb-10">He'll ask the right questions. You'll get the right board.</p>
       <Link
         to="/contact"
-        className="inline-flex items-center gap-2 bg-pjd-gold text-pjd-blue font-black px-10 py-5 text-sm tracking-widest uppercase hover:bg-white transition-colors group"
+        className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-cream font-black px-10 py-5 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group"
       >
         Get a Quote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </Link>
