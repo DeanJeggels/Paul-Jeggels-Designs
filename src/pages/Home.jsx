@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import CustomBuilder from '../components/CustomBuilder';
 import BoardQuiz from '../components/BoardQuiz';
-import ChatAssistant from '../components/ChatAssistant';
 import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
@@ -52,11 +51,6 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
           <p className="text-lg md:text-xl text-white/65 font-light max-w-xl leading-relaxed font-body">
             Tell us about your surfing. Paul will design your perfect board.
           </p>
-        </div>
-
-        {/* AI Chat input */}
-        <div className="mb-6">
-          <ChatAssistant onOpenQuiz={onOpenQuiz} />
         </div>
 
         {/* CTAs */}
