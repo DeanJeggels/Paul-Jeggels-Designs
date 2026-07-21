@@ -9,6 +9,11 @@ const ORG = `${SITE}/#organization`;
 const abs = (p) => (p.startsWith('http') ? p : `${SITE}${p}`);
 const DEFAULT_IMAGE = abs('/images/paul_jeggels_shaping_5.jpg');
 
+// Netlify serves the prerendered index.html files at trailing-slash URLs
+// (e.g. /about/) and 301s the non-slash form to them. Canonical, OG and the
+// sitemap all use this same trailing-slash form so signals stay consistent.
+export const canonicalUrl = (path) => `${SITE}${path === '/' ? '/' : `${path}/`}`;
+
 const breadcrumb = (trail) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -16,7 +21,7 @@ const breadcrumb = (trail) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: t.name,
-    item: `${SITE}${t.path === '/' ? '/' : t.path}`,
+    item: canonicalUrl(t.path),
   })),
 });
 
@@ -119,7 +124,7 @@ export function metaFor(path) {
 // Full <head> HTML injected for a route at prerender time.
 export function buildHead(path) {
   const m = metaFor(path);
-  const url = `${SITE}${path === '/' ? '/' : path}`;
+  const url = canonicalUrl(path);
   const image = abs(m.image || DEFAULT_IMAGE);
   const tags = [
     `<title>${esc(m.title)}</title>`,
