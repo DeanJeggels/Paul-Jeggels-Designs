@@ -66,9 +66,9 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-white/5 px-6 py-6 max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-        <p className="text-white/30 text-xs">© {new Date().getFullYear()} Paul Jeggels Designs. All rights reserved.</p>
-        <p className="text-white/20 text-xs">
-          Built by <a href="https://ch-ise.co.za" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors">CH-ISE</a>
+        <p className="text-white/55 text-xs">© {new Date().getFullYear()} Paul Jeggels Designs. All rights reserved.</p>
+        <p className="text-white/55 text-xs">
+          Built by <a href="https://ch-ise.co.za" target="_blank" rel="noopener noreferrer" className="underline text-white/70 hover:text-white transition-colors">CH-ISE</a>
         </p>
       </div>
     </footer>

@@ -54,7 +54,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/contact"
-            className="bg-pjd-teal text-pjd-cream font-black text-sm tracking-widest uppercase px-6 py-3 hover:bg-pjd-cream transition-colors"
+            className="bg-pjd-teal text-pjd-dark font-black text-sm tracking-widest uppercase px-6 py-3 hover:bg-pjd-cream transition-colors"
           >
             Get a Quote
           </Link>
@@ -84,7 +84,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/contact"
-            className="bg-pjd-teal text-pjd-cream font-black text-sm tracking-widest uppercase px-6 py-4 text-center"
+            className="bg-pjd-teal text-pjd-dark font-black text-sm tracking-widest uppercase px-6 py-4 text-center"
           >
             Get a Quote
           </Link>
