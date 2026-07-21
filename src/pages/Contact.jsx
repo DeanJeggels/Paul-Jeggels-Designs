@@ -93,7 +93,7 @@ const Contact = () => {
       {/* Header */}
       <div
         className="relative py-24 overflow-hidden"
-        style={{ backgroundImage: "url('/images/paul_jeggels_surfboard_3.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: "url('/images/paul_jeggels_surfboard_3.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="absolute inset-0 bg-pjd-dark/85" />
         <div className="relative max-w-7xl mx-auto px-6">
@@ -224,7 +224,7 @@ const Contact = () => {
           </div>
 
           <div>
-            <img src="/images/paul_jeggels_shaping_6.jpg" alt="Paul in the shaping bay" className="w-full aspect-video object-cover" />
+            <img src="/images/paul_jeggels_shaping_6.webp" alt="Paul in the shaping bay" className="w-full aspect-video object-cover" />
           </div>
         </div>
       </div>

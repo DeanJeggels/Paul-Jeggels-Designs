@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+
+// Public anon config — call the edge function via fetch so we don't ship the
+// full @supabase/supabase-js client on the homepage (~45KB gzip).
+const SUPABASE_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwbGJmaHdxYm1uem1ybmN4YWluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUyNjIxNjgsImV4cCI6MjA2MDgzODE2OH0.e1SJPplUC8izzANfVYT1VNNBAZT2Ki6kivDt6lYjxIY';
 
 const FALLBACK_TESTIMONIALS = [
   {
     quote: "Paul shaped a board perfectly suited to my surfing. I've never had anything that paddles this well in J-Bay conditions.",
     name: 'Mike R.',
     location: 'Jeffreys Bay',
-    image: '/images/paul_jeggels_customer_1.jpg',
+    image: '/images/paul_jeggels_customer_1.webp',
     rating: 5,
   },
   {
     quote: "I had no idea what I needed. Paul asked me a few questions, and two weeks later I had the best board I've ever owned.",
     name: 'Sarah T.',
     location: 'Cape Town',
-    image: '/images/paul_jeggels_customer_2.jpg',
+    image: '/images/paul_jeggels_customer_2.webp',
     rating: 5,
   },
   {
     quote: "Third board from Paul now. Each one better than the last. He remembers exactly what I ride and keeps improving on it.",
     name: 'Johan V.',
     location: 'Port Elizabeth',
-    image: '/images/paul_jeggels_customer_3.jpg',
+    image: '/images/paul_jeggels_customer_3.webp',
     rating: 5,
   },
 ];
@@ -45,8 +49,17 @@ const Testimonials = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const { data, error } = await supabase.functions.invoke('google-reviews');
-        if (error || !data?.reviews?.length) return;
+        const res = await fetch(`${SUPABASE_URL}/functions/v1/google-reviews`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          },
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!data?.reviews?.length) return;
         setReviews(
           data.reviews
             .filter((r) => r.rating >= 4 && r.text.length > 0)

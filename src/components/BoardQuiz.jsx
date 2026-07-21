@@ -36,17 +36,17 @@ const QUESTIONS = [
 const BOARD_RECOMMENDATIONS = {
   shortboard: {
     name: 'Shortboard',
-    image: '/images/paul_jeggels_design_4.jpg',
+    image: '/images/paul_jeggels_design_4.webp',
     description: 'Fast, responsive, and built for powerful surfing. Perfect for your experience level and the waves you ride.',
   },
   fish: {
     name: 'Fish',
-    image: '/images/paul_jeggels_design_7.jpg',
+    image: '/images/paul_jeggels_design_7.webp',
     description: 'Quick and loose with great paddle power. Ideal for getting the most out of smaller waves while keeping things fun.',
   },
   longboard: {
     name: 'Longboard',
-    image: '/images/paul_jeggels_design_13.jpg',
+    image: '/images/paul_jeggels_design_13.webp',
     description: 'Smooth, stable, and built for flowing turns. Catches everything and makes small days feel incredible.',
   },
 };

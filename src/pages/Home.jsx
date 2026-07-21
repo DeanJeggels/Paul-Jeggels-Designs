@@ -16,9 +16,13 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/paul_jeggels_shaping_5.jpg"
+          src="/images/paul_jeggels_shaping_5.webp"
           alt="Paul Jeggels shaping a surfboard"
           className="w-full h-full object-cover opacity-40"
+          width="1920"
+          height="1080"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-pjd-dark via-pjd-dark/60 to-black/30" />
       </div>
@@ -29,9 +33,12 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
         {/* Logo */}
         <div className="flex items-center gap-3 mb-16">
           <img
-            src="/images/pjd_logo.jpeg"
+            src="/images/pjd_logo.webp"
             alt="PJD Logo"
             className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 shadow-lg object-contain bg-white"
+            width="64"
+            height="64"
+            fetchPriority="high"
           />
           <div className="hidden sm:block">
             <p className="text-white font-bold text-sm tracking-widest uppercase leading-none font-body">Paul Jeggels</p>
@@ -81,12 +88,12 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
 
 const GalleryTeaser = ({ onOpenQuiz }) => {
   const images = [
-    '/images/paul_jeggels_design_1.jpg',
-    '/images/paul_jeggels_design_4.jpg',
-    '/images/paul_jeggels_design_7.jpg',
-    '/images/paul_jeggels_design_10.jpg',
-    '/images/paul_jeggels_design_13.jpg',
-    '/images/paul_jeggels_design_16.jpg',
+    '/images/paul_jeggels_design_1.webp',
+    '/images/paul_jeggels_design_4.webp',
+    '/images/paul_jeggels_design_7.webp',
+    '/images/paul_jeggels_design_10.webp',
+    '/images/paul_jeggels_design_13.webp',
+    '/images/paul_jeggels_design_16.webp',
   ];
 
   return (
@@ -140,7 +147,7 @@ const AboutTeaser = () => (
     <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div className="relative">
         <img
-          src="/images/paul_jeggels_shaping_3.jpg"
+          src="/images/paul_jeggels_shaping_3.webp"
           alt="Paul Jeggels in the shaping bay"
           className="w-full aspect-[4/5] object-cover"
           loading="lazy"

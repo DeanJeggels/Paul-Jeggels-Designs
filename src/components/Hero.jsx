@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
          <img 
-            src="/images/paul_jeggels_shaping_5.jpg" 
+            src="/images/paul_jeggels_shaping_5.webp" 
             alt="Paul Jeggels Shaping" 
             className="w-full h-full object-cover opacity-60"
          />
@@ -25,7 +25,7 @@ const Hero = () => {
         
         {/* Header / Logo Area */}
          <div className="flex items-center gap-4">
-             <img src="/images/pjd_logo.jpeg" alt="PJD Logo" className="w-12 h-12 md:w-20 md:h-20 rounded-full border border-white/20 shadow-lg object-contain bg-white transition-transform hover:scale-105" />
+             <img src="/images/pjd_logo.webp" alt="PJD Logo" className="w-12 h-12 md:w-20 md:h-20 rounded-full border border-white/20 shadow-lg object-contain bg-white transition-transform hover:scale-105" />
          </div>
 
          {/* Main Hero Content */}

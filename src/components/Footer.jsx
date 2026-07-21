@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Brand */}
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <img src="/images/pjd_logo.jpeg" alt="PJD Logo" className="w-10 h-10 rounded-full border border-white/20 object-contain bg-white" />
+            <img src="/images/pjd_logo.webp" alt="PJD Logo" className="w-10 h-10 rounded-full border border-white/20 object-contain bg-white" />
             <div>
               <p className="text-white font-black text-sm tracking-widest uppercase leading-none">Paul Jeggels</p>
               <p className="text-pjd-teal text-xs tracking-widest uppercase leading-none">Designs</p>
