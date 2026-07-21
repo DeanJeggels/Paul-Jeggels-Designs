@@ -1,15 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote } from 'lucide-react';
 
 const About = () => (
   <div className="min-h-screen bg-pjd-cream pt-24">
-    <Helmet>
-      <title>About Paul Jeggels — Master Surfboard Shaper, Jeffreys Bay</title>
-      <meta name="description" content="Meet Paul Jeggels, Jeffreys Bay's master surfboard shaper with 40+ years and 4,000+ hand-shaped boards. Featured in Zigzag Magazine." />
-      <link rel="canonical" href="https://pauljeggelsdesigns.co.za/about" />
-    </Helmet>
 
     {/* Hero */}
     <div className="relative h-[60vh] overflow-hidden">

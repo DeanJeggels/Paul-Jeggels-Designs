@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sliders, Wrench, Fish, Tag } from 'lucide-react';
 
@@ -73,11 +72,6 @@ const SERVICES = [
 
 const Services = () => (
   <div className="min-h-screen bg-pjd-dark pt-24">
-    <Helmet>
-      <title>Services — Custom Boards, Ding Repair & Fins | Paul Jeggels Designs</title>
-      <meta name="description" content="Custom surfboards from R5,000, ding repairs from R500, custom fins from R800. Hand-shaped in Jeffreys Bay by Paul Jeggels." />
-      <link rel="canonical" href="https://pauljeggelsdesigns.co.za/services" />
-    </Helmet>
 
     {/* Header */}
     <div

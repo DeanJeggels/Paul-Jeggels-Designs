@@ -3,33 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paul Jeggels Designs — Custom Hand-Shaped Surfboards, Jeffreys Bay</title>
-    <meta name="description" content="Custom surfboards hand-shaped by Paul Jeggels in Jeffreys Bay, South Africa. 40+ years experience. Shortboards, fish, longboards & more." />
     <meta name="theme-color" content="#1C1917" />
     <link rel="icon" type="image/webp" href="/images/pjd_logo.webp" />
-    <link rel="canonical" href="https://pauljeggelsdesigns.co.za/" />
 
     <!-- Preload LCP hero image -->
     <link rel="preload" as="image" href="/images/paul_jeggels_shaping_5.webp" fetchpriority="high" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Paul Jeggels Designs" />
-    <meta property="og:title" content="Paul Jeggels Designs — Custom Hand-Shaped Surfboards, Jeffreys Bay" />
-    <meta property="og:description" content="Custom surfboards hand-shaped by Paul Jeggels in Jeffreys Bay, South Africa. 40+ years experience. Shortboards, fish, longboards & more." />
-    <meta property="og:image" content="https://pauljeggelsdesigns.co.za/images/paul_jeggels_shaping_5.jpg" />
-    <meta property="og:url" content="https://pauljeggelsdesigns.co.za/" />
-    <meta property="og:locale" content="en_ZA" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Paul Jeggels Designs — Custom Hand-Shaped Surfboards, Jeffreys Bay" />
-    <meta name="twitter:description" content="Custom surfboards hand-shaped by Paul Jeggels in Jeffreys Bay, South Africa. 40+ years experience." />
-    <meta name="twitter:image" content="https://pauljeggelsdesigns.co.za/images/paul_jeggels_shaping_5.jpg" />
-
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://dplbfhwqbmnzmrncxain.supabase.co" />
-    <link rel="dns-prefetch" href="https://n8n-uq4a.onrender.com" />
 
     <!-- Google Fonts (non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +18,10 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700;800;900&family=Cabin:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700;800;900&family=Cabin:wght@400;500;600;700&display=swap"></noscript>
 
-    <!-- JSON-LD: Organization + LocalBusiness -->
+    <!-- Per-page title / description / canonical / Open Graph / Twitter are
+         injected here at prerender time from each route's <Seo> component. -->
+
+    <!-- JSON-LD: Organization + LocalBusiness (site-wide) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -84,6 +68,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/entry-client.jsx"></script>
   </body>
 </html>

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+
+// Query the stock table over PostgREST directly, so this page (and the
+// prerender/SSR build) doesn't pull in the full @supabase/supabase-js client.
+const SUPABASE_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwbGJmaHdxYm1uem1ybmN4YWluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUyNjIxNjgsImV4cCI6MjA2MDgzODE2OH0.e1SJPplUC8izzANfVYT1VNNBAZT2Ki6kivDt6lYjxIY';
 
 const CONDITION_LABELS = {
   new: 'New',
@@ -105,18 +108,19 @@ const Stock = () => {
   useEffect(() => {
     const fetchBoards = async () => {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('pjd_stock_boards')
-        .select('*')
-        .order('featured', { ascending: false })
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        setError(error.message);
-      } else {
+      try {
+        const res = await fetch(
+          `${SUPABASE_URL}/rest/v1/pjd_stock_boards?select=*&order=featured.desc,created_at.desc`,
+          { headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } },
+        );
+        if (!res.ok) throw new Error(`Request failed (${res.status})`);
+        const data = await res.json();
         setBoards(data || []);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
 
     fetchBoards();
@@ -126,11 +130,6 @@ const Stock = () => {
 
   return (
     <div className="min-h-screen bg-pjd-dark pt-24">
-      <Helmet>
-        <title>Stock Boards — Pre-Shaped Surfboards Available Now | PJD</title>
-        <meta name="description" content="Quality second-hand and pre-shaped surfboards by Paul Jeggels. All boards inspected and repaired. Jeffreys Bay." />
-        <link rel="canonical" href="https://pauljeggelsdesigns.co.za/stock" />
-      </Helmet>
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 py-16">
