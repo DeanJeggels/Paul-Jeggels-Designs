@@ -96,6 +96,7 @@ const InlineContactForm = () => {
           <select
             value={form.interest}
             onChange={set('interest')}
+            aria-label="What are you interested in?"
             className="bg-pjd-dark border border-white/15 text-white px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors appearance-none sm:col-span-2 font-body"
           >
             {INTERESTS.map((i) => (
