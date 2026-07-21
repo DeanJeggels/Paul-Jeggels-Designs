@@ -96,7 +96,7 @@ const FAQ = () => {
   return (
     <section className="bg-pjd-cream py-20">
       <div className="max-w-3xl mx-auto px-6">
-        <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-3 text-center font-body">
+        <p className="text-pjd-teal-ink text-xs font-bold tracking-[0.25em] uppercase mb-3 text-center font-body">
           Common Questions
         </p>
         <h2 className="text-3xl md:text-4xl font-bold text-pjd-dark text-center mb-14 font-display">

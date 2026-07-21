@@ -120,7 +120,7 @@ const InlineContactForm = () => {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="sm:col-span-2 flex items-center justify-center gap-3 bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50 cursor-pointer font-body"
+            className="sm:col-span-2 flex items-center justify-center gap-3 bg-pjd-teal text-pjd-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50 cursor-pointer font-body"
           >
             {status === 'loading' ? (
               <><Loader className="w-4 h-4 animate-spin" /> Sending...</>

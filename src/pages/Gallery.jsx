@@ -98,7 +98,7 @@ const Gallery = () => {
           <p className="text-white/50 mb-8 font-body">Find your perfect board in 60 seconds — Paul will handle the rest.</p>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream hover:text-pjd-dark transition-colors group cursor-pointer font-body"
+            className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream hover:text-pjd-dark transition-colors group cursor-pointer font-body"
           >
             Take the Board Quiz <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>

@@ -51,7 +51,7 @@ const Hero = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                      <button 
                         onClick={() => setIsBuilderOpen(true)}
-                        className="bg-pjd-teal text-pjd-cream font-bold px-8 py-6 rounded-sm hover:bg-pjd-cream transition-colors flex flex-col items-start gap-1 group shadow-lg"
+                        className="bg-pjd-teal text-pjd-dark font-bold px-8 py-6 rounded-sm hover:bg-pjd-cream transition-colors flex flex-col items-start gap-1 group shadow-lg"
                      >
                        <span className="flex items-center gap-2">
                          CUSTOM BUILDER <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

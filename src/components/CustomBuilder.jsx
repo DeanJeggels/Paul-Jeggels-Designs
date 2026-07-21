@@ -161,7 +161,7 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
           </p>
           <button
             onClick={onClose}
-            className="bg-pjd-teal text-pjd-cream font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors"
+            className="bg-pjd-teal text-pjd-dark font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors"
           >
             Close
           </button>
@@ -282,7 +282,7 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full flex items-center justify-center gap-3 bg-pjd-teal text-pjd-cream font-black py-5 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-3 bg-pjd-teal text-pjd-dark font-black py-5 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50"
           >
             {status === 'loading' ? (
               <><Loader className="w-4 h-4 animate-spin" /> Sending to Paul...</>

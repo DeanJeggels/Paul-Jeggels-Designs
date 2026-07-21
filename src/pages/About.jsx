@@ -134,7 +134,7 @@ const About = () => (
       <p className="text-pjd-stone max-w-md mx-auto mb-10">He'll ask the right questions. You'll get the right board.</p>
       <Link
         to="/contact"
-        className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-cream font-black px-10 py-5 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group"
+        className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-black px-10 py-5 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group"
       >
         Get a Quote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </Link>

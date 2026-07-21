@@ -176,7 +176,7 @@ const ChatAssistant = ({ onOpenQuiz }) => {
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="bg-pjd-teal text-pjd-cream p-2.5 rounded-lg hover:bg-white transition-colors disabled:opacity-30 cursor-pointer"
+            className="bg-pjd-teal text-pjd-dark p-2.5 rounded-lg hover:bg-white transition-colors disabled:opacity-30 cursor-pointer"
             aria-label="Send message"
           >
             <Send className="w-4 h-4" />

@@ -4,6 +4,7 @@
   --color-pjd-dark: #1C1917;
   --color-pjd-cream: #F5F0E1;
   --color-pjd-teal: #0891B2;
+  --color-pjd-teal-ink: #0E7490; /* darker teal for text on light (cream/white) backgrounds — passes 4.5:1 */
   --color-pjd-terra: #C67B5C;
   --color-pjd-stone: #44403C;
   --font-display: 'Bodoni Moda', serif;

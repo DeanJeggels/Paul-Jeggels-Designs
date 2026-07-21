@@ -64,7 +64,7 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
         <div className="flex flex-col sm:flex-row items-start gap-4">
           <button
             onClick={onOpenQuiz}
-            className="flex items-center gap-3 bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group shadow-xl cursor-pointer rounded-lg font-body"
+            className="flex items-center gap-3 bg-pjd-teal text-pjd-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group shadow-xl cursor-pointer rounded-lg font-body"
           >
             Find My Board <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
@@ -101,14 +101,14 @@ const GalleryTeaser = ({ onOpenQuiz }) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-3 font-body">The Work</p>
+            <p className="text-pjd-teal-ink text-xs font-bold tracking-[0.25em] uppercase mb-3 font-body">The Work</p>
             <h2 className="text-4xl md:text-5xl font-bold text-pjd-dark leading-tight font-display">
               Every Shape Has<br />a Story.
             </h2>
           </div>
           <Link
             to="/gallery"
-            className="flex items-center gap-2 text-pjd-teal text-sm font-bold tracking-widest uppercase hover:text-pjd-dark transition-colors group font-body"
+            className="flex items-center gap-2 text-pjd-teal-ink text-sm font-bold tracking-widest uppercase hover:text-pjd-dark transition-colors group font-body"
           >
             View Full Gallery <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -130,7 +130,7 @@ const GalleryTeaser = ({ onOpenQuiz }) => {
         <div className="text-center mt-10">
           <button
             onClick={onOpenQuiz}
-            className="inline-flex items-center gap-2 text-pjd-teal text-sm font-bold tracking-widest uppercase hover:text-pjd-dark transition-colors cursor-pointer font-body"
+            className="inline-flex items-center gap-2 text-pjd-teal-ink text-sm font-bold tracking-widest uppercase hover:text-pjd-dark transition-colors cursor-pointer font-body"
           >
             Want something like this? Take the quiz <ArrowRight className="w-4 h-4" />
           </button>
@@ -173,7 +173,7 @@ const AboutTeaser = () => (
         </p>
         <Link
           to="/about"
-          className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group cursor-pointer font-body"
+          className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group cursor-pointer font-body"
         >
           Meet Paul <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>

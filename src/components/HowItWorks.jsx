@@ -44,7 +44,7 @@ const HowItWorks = () => (
             <div className="w-14 h-14 bg-pjd-teal/10 border border-pjd-teal/30 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-pjd-teal/20 transition-colors">
               <Icon className="w-6 h-6 text-pjd-teal" />
             </div>
-            <span className="text-pjd-teal/40 text-xs font-bold tracking-widest uppercase font-body">{number}</span>
+            <span className="text-pjd-teal text-xs font-bold tracking-widest uppercase font-body">{number}</span>
             <h3 className="text-white font-bold text-lg mt-2 mb-3 font-display">{title}</h3>
             <p className="text-white/50 text-sm leading-relaxed font-body">{description}</p>
           </div>

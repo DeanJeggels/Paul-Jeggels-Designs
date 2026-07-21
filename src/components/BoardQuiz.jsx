@@ -206,7 +206,7 @@ const BoardQuiz = ({ onClose }) => {
               </div>
               <button
                 onClick={() => setStep((s) => s + 1)}
-                className="w-full flex items-center justify-center gap-2 bg-pjd-teal text-pjd-cream font-bold py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors cursor-pointer rounded-lg font-body"
+                className="w-full flex items-center justify-center gap-2 bg-pjd-teal text-pjd-dark font-bold py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors cursor-pointer rounded-lg font-body"
               >
                 See My Recommendation <ArrowRight className="w-4 h-4" />
               </button>
@@ -223,7 +223,7 @@ const BoardQuiz = ({ onClose }) => {
                   <p className="text-white/55 leading-relaxed mb-6 font-body">
                     Paul will get back to you within 24 hours with a quote for your {board.name}.
                   </p>
-                  <button onClick={onClose} className="bg-pjd-teal text-pjd-cream font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors cursor-pointer rounded-lg font-body">
+                  <button onClick={onClose} className="bg-pjd-teal text-pjd-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors cursor-pointer rounded-lg font-body">
                     Close
                   </button>
                 </div>
@@ -278,7 +278,7 @@ const BoardQuiz = ({ onClose }) => {
                     <button
                       type="submit"
                       disabled={status === 'loading'}
-                      className="w-full flex items-center justify-center gap-3 bg-pjd-teal text-pjd-cream font-bold py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50 cursor-pointer rounded-lg font-body"
+                      className="w-full flex items-center justify-center gap-3 bg-pjd-teal text-pjd-dark font-bold py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors disabled:opacity-50 cursor-pointer rounded-lg font-body"
                     >
                       {status === 'loading' ? (
                         <><Loader className="w-4 h-4 animate-spin" /> Sending...</>
