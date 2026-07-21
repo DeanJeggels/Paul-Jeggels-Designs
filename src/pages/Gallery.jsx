@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -49,11 +48,6 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-pjd-cream pt-24">
-      <Helmet>
-        <title>Gallery — 40 Years of Hand-Shaped Surfboards | Paul Jeggels Designs</title>
-        <meta name="description" content="Browse 40+ years of custom surfboard designs hand-shaped by Paul Jeggels in Jeffreys Bay. Shortboards, fish, longboards & more." />
-        <link rel="canonical" href="https://pauljeggelsdesigns.co.za/gallery" />
-      </Helmet>
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -77,7 +71,7 @@ const Gallery = () => {
             >
               <img
                 src={img.src}
-                alt={img.label}
+                alt={`${img.label} — custom hand-shaped surfboard by Paul Jeggels, Jeffreys Bay`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
