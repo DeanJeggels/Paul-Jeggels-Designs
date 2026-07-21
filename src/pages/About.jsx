@@ -14,7 +14,7 @@ const About = () => (
     {/* Hero */}
     <div className="relative h-[60vh] overflow-hidden">
       <img
-        src="/images/paul_jeggels_shaping_4.jpg"
+        src="/images/paul_jeggels_shaping_4.webp"
         alt="Paul Jeggels in the shaping bay"
         className="w-full h-full object-cover opacity-60"
       />
@@ -63,18 +63,18 @@ const About = () => (
 
       <div className="flex flex-col gap-6">
         <img
-          src="/images/paul_jeggels_5.jpg"
+          src="/images/paul_jeggels_5.webp"
           alt="Paul Jeggels"
           className="w-full aspect-[3/4] object-cover"
         />
         <div className="grid grid-cols-2 gap-4">
           <img
-            src="/images/paul_jeggels_shaping_2.jpg"
+            src="/images/paul_jeggels_shaping_2.webp"
             alt="Shaping process"
             className="w-full aspect-square object-cover"
           />
           <img
-            src="/images/paul_jeggels_shaping_1.jpg"
+            src="/images/paul_jeggels_shaping_1.webp"
             alt="Workshop"
             className="w-full aspect-square object-cover"
           />
@@ -101,8 +101,8 @@ const About = () => (
           </p>
         </div>
         <div className="flex flex-col gap-4">
-          <img src="/images/ZIGZAG01.jpg" alt="Zigzag Magazine feature" className="w-full aspect-[16/10] object-cover" />
-          <img src="/images/Zigzag02jpg.jpg" alt="Zigzag Magazine feature" className="w-full aspect-[16/10] object-cover" />
+          <img src="/images/ZIGZAG01.webp" alt="Zigzag Magazine feature" className="w-full aspect-[16/10] object-cover" />
+          <img src="/images/Zigzag02jpg.webp" alt="Zigzag Magazine feature" className="w-full aspect-[16/10] object-cover" />
         </div>
       </div>
     </div>

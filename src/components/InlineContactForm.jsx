@@ -38,7 +38,7 @@ const InlineContactForm = () => {
 
   if (status === 'success') {
     return (
-      <section className="relative py-24 overflow-hidden" style={{ backgroundImage: "url('/images/paul_jeggels_surfing.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="relative py-24 overflow-hidden" style={{ backgroundImage: "url('/images/paul_jeggels_surfing.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-pjd-dark/85" />
         <div className="relative max-w-xl mx-auto px-6 text-center">
           <CheckCircle className="w-14 h-14 text-pjd-teal mx-auto mb-5" />
@@ -55,7 +55,7 @@ const InlineContactForm = () => {
   return (
     <section
       className="relative py-24 overflow-hidden"
-      style={{ backgroundImage: "url('/images/paul_jeggels_surfing.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: "url('/images/paul_jeggels_surfing.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0 bg-pjd-dark/85" />
       <div className="relative max-w-2xl mx-auto px-6">

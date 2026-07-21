@@ -17,7 +17,7 @@ const SERVICES = [
       'Choose your glass job and fin setup',
       'Any design — airbrush or tint',
     ],
-    image: '/images/paul_jeggels_shaping_5.jpg',
+    image: '/images/paul_jeggels_shaping_5.webp',
     cta: 'Order a Custom Board',
   },
   {
@@ -33,7 +33,7 @@ const SERVICES = [
       'Full re-glass jobs',
       'Fin box repairs and replacements',
     ],
-    image: '/images/paul_jeggels_glassing_1.jpg',
+    image: '/images/paul_jeggels_glassing_1.webp',
     cta: 'Book a Repair',
   },
   {
@@ -49,7 +49,7 @@ const SERVICES = [
       'FCS and Futures compatible',
       'Single, twin, thruster and quad setups',
     ],
-    image: '/images/paul_jeggels_fin_1.jpg',
+    image: '/images/paul_jeggels_fin_1.webp',
     cta: 'Enquire About Fins',
   },
   {
@@ -65,7 +65,7 @@ const SERVICES = [
       'Surfboard bags available',
       'Updated stock regularly',
     ],
-    image: '/images/paul_jeggels_customs_1.jpg',
+    image: '/images/paul_jeggels_customs_1.webp',
     cta: 'Browse Stock Boards',
     href: '/stock',
   },
@@ -82,7 +82,7 @@ const Services = () => (
     {/* Header */}
     <div
       className="relative py-28 overflow-hidden"
-      style={{ backgroundImage: "url('/images/paul_jeggels_banner_5.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: "url('/images/paul_jeggels_banner_5.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0 bg-pjd-dark/80" />
       <div className="relative max-w-7xl mx-auto px-6">

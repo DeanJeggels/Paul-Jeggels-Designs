@@ -31,7 +31,7 @@ const BoardCard = ({ board }) => (
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center">
-          <img src="/images/pjd_logo.jpeg" alt="PJD" className="w-20 h-20 object-contain opacity-20" />
+          <img src="/images/pjd_logo.webp" alt="PJD" className="w-20 h-20 object-contain opacity-20" />
         </div>
       )}
       {board.sold && (
@@ -82,7 +82,7 @@ const BoardCard = ({ board }) => (
 
 const EmptyState = () => (
   <div className="col-span-full py-24 text-center">
-    <img src="/images/pjd_logo.jpeg" alt="PJD" className="w-16 h-16 object-contain mx-auto mb-6 opacity-30" />
+    <img src="/images/pjd_logo.webp" alt="PJD" className="w-16 h-16 object-contain mx-auto mb-6 opacity-30" />
     <h3 className="text-white font-black text-xl mb-3">No stock boards listed right now.</h3>
     <p className="text-white/40 mb-8 max-w-sm mx-auto">
       Stock changes regularly. Get in touch and Paul will let you know when something suitable comes up.

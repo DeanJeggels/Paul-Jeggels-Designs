@@ -1,15 +1,17 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, ScrollRestoration, useLocation } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Gallery from './pages/Gallery';
-import About from './pages/About';
-import Services from './pages/Services';
-import Stock from './pages/Stock';
-import Contact from './pages/Contact';
+
+// Route-level code splitting — only Home ships in the initial bundle
+const Gallery = lazy(() => import('./pages/Gallery'));
+const About = lazy(() => import('./pages/About'));
+const Services = lazy(() => import('./pages/Services'));
+const Stock = lazy(() => import('./pages/Stock'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -32,14 +34,16 @@ const Layout = () => {
       <ScrollToTop />
       {showNav && <Navbar />}
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/stock" element={<Stock />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen bg-pjd-dark" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/stock" element={<Stock />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>

@@ -31,7 +31,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            src="/images/pjd_logo.jpeg"
+            src="/images/pjd_logo.webp"
             alt="PJD Logo"
             className="w-10 h-10 rounded-full border border-white/20 object-contain bg-white group-hover:border-pjd-teal transition-colors"
           />
