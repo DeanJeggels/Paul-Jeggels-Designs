@@ -22,8 +22,8 @@ Unlike factory or off-the-rack boards designed for a generic surfer, every Paul 
 ## Pages
 
 - [Home](https://pauljeggelsdesigns.co.za/): Overview, how it works, reviews, FAQ.
-- [About](https://pauljeggelsdesigns.co.za/about): Paul Jeggels' story and shaping experience.
-- [Services](https://pauljeggelsdesigns.co.za/services): Custom boards, ding repair, custom fins, pricing.
-- [Gallery](https://pauljeggelsdesigns.co.za/gallery): 40+ years of custom shapes.
-- [Stock](https://pauljeggelsdesigns.co.za/stock): Ready-to-ride boards currently available.
-- [Contact](https://pauljeggelsdesigns.co.za/contact): Free quote and consultation.
+- [About](https://pauljeggelsdesigns.co.za/about/): Paul Jeggels' story and shaping experience.
+- [Services](https://pauljeggelsdesigns.co.za/services/): Custom boards, ding repair, custom fins, pricing.
+- [Gallery](https://pauljeggelsdesigns.co.za/gallery/): 40+ years of custom shapes.
+- [Stock](https://pauljeggelsdesigns.co.za/stock/): Ready-to-ride boards currently available.
+- [Contact](https://pauljeggelsdesigns.co.za/contact/): Free quote and consultation.
