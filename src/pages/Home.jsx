@@ -90,7 +90,7 @@ const GalleryTeaser = ({ onOpenQuiz }) => {
     '/images/paul_jeggels_design_1.webp',
     '/images/paul_jeggels_design_4.webp',
     '/images/paul_jeggels_design_7.webp',
-    '/images/paul_jeggels_design_10.webp',
+    '/images/paul_jeggels_design_11.webp',
     '/images/paul_jeggels_design_13.webp',
     '/images/paul_jeggels_design_16.webp',
   ];

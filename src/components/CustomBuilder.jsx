@@ -22,7 +22,7 @@ const BOARD_TYPES = [
     id: 'hybrid',
     name: 'Hybrid / Mullet',
     category: 'Daily Driver',
-    image: '/images/paul_jeggels_design_10.webp',
+    image: '/images/paul_jeggels_design_11.webp',
     description: 'Wider nose, relaxed rocker. Paddles well and handles most conditions.',
   },
   {
