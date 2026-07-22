@@ -36,6 +36,22 @@ const SERVICES = [
     cta: 'Book a Repair',
   },
   {
+    icon: Sliders,
+    title: 'Surfboard Glassing',
+    tagline: 'Laminated by hand, finished properly.',
+    price: 'Price on request',
+    description:
+      "Glassing is where a shaped blank becomes a surfboard — and where cut corners show up first. Paul laminates every board by hand with fibreglass and resin, from standard 4oz glass jobs to heavy-duty layups, colour tints and resin swirls. Full re-glassing of older boards is done in the same bay, to the same standard as a new custom.",
+    detail: [
+      'Hand lamination with fibreglass and resin',
+      'Standard to heavy-duty glass schedules',
+      'Colour tints, resin swirls and gloss or satin finishes',
+      'Full re-glass jobs on older boards',
+    ],
+    image: '/images/paul_jeggels_glassing_2.webp',
+    cta: 'Enquire About Glassing',
+  },
+  {
     icon: Fish,
     title: 'Fin Manufacturing',
     tagline: 'Fins built to match your board.',
@@ -85,7 +101,7 @@ const Services = () => (
           Whatever Your<br />Board Needs.
         </h1>
         <p className="text-white/55 max-w-xl mt-6 leading-relaxed">
-          Custom boards, ding repairs, fin manufacturing, or a quality second-hand shape. Paul and Daniel have it covered — from blank to barrel.
+          Custom boards, glassing, ding repairs, fin manufacturing, or a quality second-hand shape. Paul and Daniel have it covered — from blank to barrel. Shaped in Jeffreys Bay, delivered anywhere in South Africa.
         </p>
       </div>
     </div>

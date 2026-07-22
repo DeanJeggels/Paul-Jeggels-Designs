@@ -64,4 +64,16 @@ export const FAQS = [
     question: 'What do I need to tell Paul to get a quote?',
     answer: "The more Paul knows, the better. Tell him your height, weight, surfing experience, how often you surf, where you surf, and what you're looking for in a board. Don't worry if you're not sure about dimensions — that's Paul's job. Just describe your surfing and he'll figure out the rest.",
   },
+  {
+    question: 'Can I order a custom surfboard from anywhere in South Africa?',
+    answer: "Yes. Most of the consultation happens over the phone or WhatsApp anyway — Paul asks about your height, weight, ability and local break, then shapes the board in his Jeffreys Bay workshop and ships it to you. Surfers from Cape Town, Durban, Johannesburg and everywhere in between order this way. Pick-up in J-Bay is free.",
+  },
+  {
+    question: 'Does Paul Jeggels do surfboard glassing?',
+    answer: "Yes — glassing is done in-house, by hand. Every board Paul shapes is laminated with fibreglass and resin in his own bay, from standard 4oz glass jobs to heavy-duty layups, colour tints, resin swirls and gloss or satin finishes. He also re-glasses older boards.",
+  },
+  {
+    question: 'How experienced is Paul Jeggels as a surfboard shaper?',
+    answer: "Paul has been shaping surfboards for over 40 years and has hand-shaped more than 4,000 boards, making him one of South Africa's most experienced custom shapers. He works from Jeffreys Bay, has been featured in Zigzag Magazine, and still shapes every board himself — no CNC machines, no ghost shapers.",
+  },
 ];

@@ -53,7 +53,7 @@ const personPaul = {
   jobTitle: 'Master Surfboard Shaper',
   worksFor: { '@id': ORG },
   description:
-    'Master surfboard shaper with over 40 years of experience and 4,000+ hand-shaped boards, based in Jeffreys Bay, South Africa. Featured in Zigzag Magazine.',
+    "One of South Africa's most experienced surfboard shapers — over 40 years of experience and 4,000+ hand-shaped boards, based in Jeffreys Bay. Featured in Zigzag Magazine.",
   knowsAbout: ['Surfboard shaping', 'Custom surfboards', 'Surfboard design', 'Ding repair', 'Surf fins'],
 };
 
@@ -65,7 +65,7 @@ const surfboardService = {
   provider: { '@id': ORG },
   areaServed: { '@type': 'Country', name: 'South Africa' },
   description:
-    'Hand-shaped custom surfboards built to your height, weight, ability and local waves — shortboards, fish, hybrids, mid-lengths, longboards and fins.',
+    'Hand-shaped custom surfboards built to your height, weight, ability and local waves — shortboards, fish, hybrids, mid-lengths, longboards and fins. Shaped in Jeffreys Bay, delivered anywhere in South Africa.',
   offers: {
     '@type': 'Offer',
     priceCurrency: 'ZAR',
@@ -73,25 +73,36 @@ const surfboardService = {
   },
 };
 
+const glassingService = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Surfboard Glassing & Repair',
+  serviceType: 'Surfboard glassing, lamination and ding repair',
+  provider: { '@id': ORG },
+  areaServed: { '@type': 'Country', name: 'South Africa' },
+  description:
+    'In-house surfboard glassing by hand: fibreglass and resin lamination, standard to heavy-duty glass schedules, colour tints, resin swirls, gloss and satin finishes, full re-glass jobs and ding repairs from R500.',
+};
+
 // path -> { title, description, image?, jsonLd? }
 export const ROUTES = {
   '/': {
-    title: 'Custom Hand-Shaped Surfboards, Jeffreys Bay | Paul Jeggels Designs',
+    title: 'Custom Surfboards South Africa — Hand-Shaped in Jeffreys Bay | PJD',
     description:
-      'Custom surfboards hand-shaped in Jeffreys Bay by Paul Jeggels — 40+ years, 4,000+ boards. Shortboards, fish, longboards & fins built for your size and waves.',
+      'Custom surfboards hand-shaped by Paul Jeggels — 40+ years, 4,000+ boards, one of South Africa\'s most experienced shapers. Shortboards, fish, longboards & fins, delivered nationwide from Jeffreys Bay.',
     jsonLd: [website, surfboardService, faqPage],
   },
   '/about': {
     title: 'About Paul Jeggels — Master Surfboard Shaper, Jeffreys Bay',
     description:
-      "Meet Paul Jeggels, Jeffreys Bay's master surfboard shaper — 40+ years and 4,000+ hand-shaped boards, featured in Zigzag Magazine. Every board shaped by hand.",
+      "Meet Paul Jeggels — one of South Africa's most experienced surfboard shapers, with 40+ years and 4,000+ hand-shaped boards from his Jeffreys Bay workshop. Featured in Zigzag Magazine.",
     jsonLd: [personPaul, breadcrumb([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])],
   },
   '/services': {
-    title: 'Surfboard Services — Custom Boards, Ding Repair & Fins | Jeffreys Bay',
+    title: 'Surfboard Shaping, Glassing & Ding Repair — South Africa | PJD',
     description:
-      'Custom surfboards from R5,000, ding repairs from R500 and custom fins — all hand-crafted in Jeffreys Bay by Paul Jeggels. Built for your surfing.',
-    jsonLd: [surfboardService, breadcrumb([{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }])],
+      'Custom surfboard shaping from R5,000, hand glassing and lamination, ding repairs from R500 and custom fins — all done in-house in Jeffreys Bay by Paul Jeggels, delivered anywhere in South Africa.',
+    jsonLd: [surfboardService, glassingService, breadcrumb([{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }])],
   },
   '/gallery': {
     title: 'Surfboard Gallery — Custom Shapes by Paul Jeggels, Jeffreys Bay',
