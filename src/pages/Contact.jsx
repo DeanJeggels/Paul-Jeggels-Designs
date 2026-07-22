@@ -120,7 +120,7 @@ const Contact = () => {
               <label className="block text-white/70 text-xs font-bold tracking-widest uppercase mb-2 font-body">
                 What are you after?<span className="text-pjd-teal ml-1">*</span>
               </label>
-              <select className={selectClass} value={form.interest} onChange={set('interest')} required>
+              <select className={selectClass} value={form.interest} onChange={set('interest')} aria-label="What are you after?" required>
                 {INTERESTS.map((i) => (
                   <option key={i.value} value={i.value}>{i.label}</option>
                 ))}
@@ -148,7 +148,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block text-white/70 text-xs font-bold tracking-widest uppercase mb-2 font-body">Delivery Address <span className="text-white/40 normal-case font-normal">(optional, free pick-up in J-Bay)</span></label>
+              <label className="block text-white/70 text-xs font-bold tracking-widest uppercase mb-2 font-body">Delivery Address <span className="text-white/60 normal-case font-normal">(optional, free pick-up in J-Bay)</span></label>
               <AddressField className={inputClass} value={form.address} onChange={(v) => setForm((prev) => ({ ...prev, address: v }))} />
             </div>
 
@@ -183,9 +183,9 @@ const Contact = () => {
 
           </form>
 
-          <p className="text-white/30 text-xs mt-6 font-body">
+          <p className="text-white/60 text-xs mt-6 font-body">
             Want to spec out a custom board in detail? Use the{' '}
-            <a href="/" className="text-pjd-teal hover:underline">board builder on our homepage</a>.
+            <a href="/" className="text-pjd-teal underline">board builder on our homepage</a>.
           </p>
         </div>
 
@@ -199,7 +199,7 @@ const Contact = () => {
                   <Phone className="w-4 h-4 text-pjd-dark" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-0.5 font-body">Phone</p>
+                  <p className="text-xs font-bold tracking-widest uppercase text-white/60 mb-0.5 font-body">Phone</p>
                   <p className="font-bold text-sm font-body">+27 82 960 9353</p>
                 </div>
               </a>
@@ -208,24 +208,30 @@ const Contact = () => {
                   <Instagram className="w-4 h-4 text-pjd-dark" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-0.5 font-body">Instagram</p>
+                  <p className="text-xs font-bold tracking-widest uppercase text-white/60 mb-0.5 font-body">Instagram</p>
                   <p className="font-bold text-sm font-body">@pauljeggelsdesigns</p>
                 </div>
               </a>
-              <div className="flex items-start gap-4 text-white/70">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Paul+Jeggels+Designs%2C+15+Dageraad+Street%2C+Jeffreys+Bay"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 text-white/70 hover:text-white transition-colors group"
+              >
                 <div className="w-10 h-10 bg-pjd-teal flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="w-4 h-4 text-pjd-dark" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-0.5 font-body">Workshop</p>
+                  <p className="text-xs font-bold tracking-widest uppercase text-white/60 mb-0.5 font-body">Workshop</p>
                   <p className="font-bold text-sm leading-relaxed font-body">15 Dageraad Street<br />Jeffreys Bay 6330</p>
+                  <p className="text-pjd-teal text-xs font-bold tracking-widest uppercase mt-1.5 underline font-body">Get Directions</p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
           <div className="border-t border-white/10 pt-8">
-            <p className="text-white/40 text-xs leading-relaxed font-body">
+            <p className="text-white/60 text-xs leading-relaxed font-body">
               Paul aims to respond within 24 hours. For urgent requests, call directly. Lead times on custom boards are typically 1–3 weeks depending on demand.
             </p>
           </div>
