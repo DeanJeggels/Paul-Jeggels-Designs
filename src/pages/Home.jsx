@@ -55,7 +55,7 @@ const Hero = ({ onOpenQuiz, onOpenBuilder }) => (
             Actually Fits You.
           </h1>
           <p className="text-lg md:text-xl text-white/65 font-light max-w-xl leading-relaxed font-body">
-            Tell us about your surfing. Paul will design your perfect board.
+            Tell us about your surfing. Paul will design your perfect board — shaped in Jeffreys Bay, delivered anywhere in South Africa.
           </p>
         </div>
 
