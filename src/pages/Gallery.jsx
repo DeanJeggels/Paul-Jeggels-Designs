@@ -29,6 +29,7 @@ const GALLERY_IMAGES = [
   { src: '/images/paul_jeggels_customer_2.webp', label: 'Stoked Surfer' },
   { src: '/images/paul_jeggels_customer_3.webp', label: 'Stoked Surfer' },
   { src: '/images/paul_jeggels_customer_4.webp', label: 'Stoked Surfer' },
+  { src: '/images/paul_jeggels_customer_5.webp', label: 'Stoked Surfer' },
   { src: '/images/norden_1.webp', label: 'Collaboration' },
   { src: '/images/norden_2.webp', label: 'Collaboration' },
   { src: '/images/norden_3.webp', label: 'Collaboration' },
