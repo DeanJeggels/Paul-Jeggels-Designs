@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle, Loader, AlertCircle } from 'lucide-react';
+import AddressField from './AddressField';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -12,7 +13,7 @@ const INTERESTS = [
 ];
 
 const InlineContactForm = () => {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', interest: 'custom', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', address: '', interest: 'custom', message: '' });
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -25,7 +26,13 @@ const InlineContactForm = () => {
       const res = await fetch(SUBMIT_LEAD_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'website_inline' }),
+        body: JSON.stringify({
+          ...form,
+          message: form.address
+            ? `${form.message}\n\nDelivery address: ${form.address}`.trim()
+            : form.message,
+          source: 'website_inline',
+        }),
       });
       const result = await res.json();
       if (!res.ok) throw new Error(result.error || 'Something went wrong.');
@@ -92,6 +99,12 @@ const InlineContactForm = () => {
             value={form.phone}
             onChange={set('phone')}
             className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors sm:col-span-2 font-body"
+          />
+          <AddressField
+            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors sm:col-span-2 font-body w-full"
+            placeholder="Delivery address (optional, free pick-up in J-Bay)"
+            value={form.address}
+            onChange={(v) => setForm((prev) => ({ ...prev, address: v }))}
           />
           <select
             value={form.interest}
