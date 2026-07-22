@@ -56,10 +56,15 @@ const Footer = () => {
               <Instagram className="w-4 h-4 text-pjd-teal" />
               @pauljeggelsdesigns
             </a>
-            <div className="flex items-start gap-3 text-white/60 text-sm">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Paul+Jeggels+Designs%2C+15+Dageraad+Street%2C+Jeffreys+Bay"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 text-white/60 text-sm hover:text-white transition-colors"
+            >
               <MapPin className="w-4 h-4 text-pjd-teal mt-0.5 shrink-0" />
-              <span>15 Dageraad Street<br />Jeffreys Bay 6330</span>
-            </div>
+              <span>15 Dageraad Street<br />Jeffreys Bay 6330<br /><span className="underline">Get directions</span></span>
+            </a>
           </div>
         </div>
 
