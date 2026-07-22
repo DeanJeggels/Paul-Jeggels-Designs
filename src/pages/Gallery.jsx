@@ -12,7 +12,6 @@ const GALLERY_IMAGES = [
   { src: '/images/paul_jeggels_design_7.webp', label: 'Custom Shape' },
   { src: '/images/paul_jeggels_design_8.webp', label: 'Custom Shape' },
   { src: '/images/paul_jeggels_design_9.webp', label: 'Custom Shape' },
-  { src: '/images/paul_jeggels_design_10.webp', label: 'Custom Shape' },
   { src: '/images/paul_jeggels_design_11.webp', label: 'Custom Shape' },
   { src: '/images/paul_jeggels_design_12.webp', label: 'Custom Shape' },
   { src: '/images/paul_jeggels_design_13.webp', label: 'Custom Shape' },
