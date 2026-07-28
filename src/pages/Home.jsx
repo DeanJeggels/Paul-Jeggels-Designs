@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import CustomBuilder from '../components/CustomBuilder';
 import BoardQuiz from '../components/BoardQuiz';

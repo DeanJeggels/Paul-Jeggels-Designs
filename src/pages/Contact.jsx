@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router';
 import { Phone, Instagram, MapPin, CheckCircle, AlertCircle, Loader, ArrowRight } from 'lucide-react';
 import AddressField from '../components/AddressField';
 

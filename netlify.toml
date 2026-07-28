@@ -3,7 +3,9 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  # react-router 8 requires Node >= 22.22.0. Bumping this is mandatory:
+  # on Node 20 the Netlify build fails at install.
+  NODE_VERSION = "22"
 
 # /index.html serves a byte-identical copy of the homepage, so Google sees it as
 # a duplicate URL. force = true is required: without it the static file wins and
