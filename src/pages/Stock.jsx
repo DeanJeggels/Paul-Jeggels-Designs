@@ -71,7 +71,7 @@ const BoardCard = ({ board }) => (
         )}
         {!board.sold && (
           <Link
-            to="/contact"
+            to="/contact/"
             state={{ interest: 'stock', boardName: board.name }}
             className="flex items-center gap-2 bg-pjd-teal text-pjd-dark font-black text-xs tracking-widest uppercase px-5 py-3 hover:bg-pjd-cream transition-colors group"
           >
@@ -91,7 +91,7 @@ const EmptyState = () => (
       Stock changes regularly. Get in touch and Paul will let you know when something suitable comes up.
     </p>
     <Link
-      to="/contact"
+      to="/contact/"
       className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors"
     >
       Contact Us
@@ -137,8 +137,13 @@ const Stock = () => {
         <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
           Stock Boards.
         </h1>
-        <p className="text-white/50 max-w-xl leading-relaxed">
-          All boards shaped by Paul Jeggels. No exceptions. Updated as boards come and go — check back regularly or get in touch to be notified.
+        <p className="text-white/60 max-w-2xl leading-relaxed">
+          Surfboards for sale, ready to ride today. Every board on this page was hand-shaped by Paul Jeggels in his Jeffreys Bay workshop, so you get the same shape and the same glassing as a custom order without the wait. Stock moves quickly and the list is updated as boards come and go.
+        </p>
+        <p className="text-white/60 max-w-2xl leading-relaxed mt-4">
+          Collection is free from the workshop in Jeffreys Bay and we courier boards anywhere in South Africa. If nothing here fits, Paul can{' '}
+          <Link to="/services/" className="text-pjd-teal underline hover:text-white transition-colors">shape you a custom board</Link>{' '}
+          in one to three weeks.
         </p>
       </div>
 
@@ -174,6 +179,80 @@ const Stock = () => {
             {displayed.length > 0 ? displayed.map((b) => <BoardCard key={b.id} board={b} />) : <EmptyState />}
           </div>
         )}
+      </div>
+
+      {/* Buying guide. Static on purpose: the board grid above is fetched from
+          Supabase on the client, so without this the prerendered HTML that
+          Google crawls would be almost empty. */}
+      <div className="border-t border-white/10 bg-black/40">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-4">Before You Buy</p>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-12 max-w-2xl leading-tight">
+            What You're Actually Getting.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            <div>
+              <h3 className="text-white font-black text-lg mb-3">Shaped by Paul, Not Imported</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Every stock board is a Paul Jeggels shape, hand-shaped and hand-glassed in Jeffreys Bay. These are not factory blanks or imported pop-outs sitting under someone else's logo. Same foam, same glassing schedule and same finish that goes into a full custom order.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-white font-black text-lg mb-3">Checked and Repaired First</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Nothing gets listed until it has been through the workshop. Dings are repaired, fin boxes and leash plugs are checked, and any pressure dents or delamination are sorted before the board goes up. Condition is then graded honestly.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-white font-black text-lg mb-3">Ready to Ride Today</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                A custom order takes one to three weeks. A stock board leaves the workshop the day you pay for it. If there is swell coming and you need something under your feet this weekend, this is the page to watch.
+              </p>
+            </div>
+          </div>
+
+          <h3 className="text-white font-black text-xl mb-6">How We Grade Condition</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+            {[
+              ['New', 'bg-emerald-500', 'Never surfed. Straight off the rack with no repairs and no marks.'],
+              ['Like New', 'bg-teal-500', 'Surfed a handful of times. No repairs, maybe the odd light pressure dent.'],
+              ['Good', 'bg-blue-500', 'Properly surfed and properly sorted. Repairs done cleanly and fully watertight.'],
+              ['Fair', 'bg-amber-500', 'Plenty of life left and priced accordingly. Visible repairs, honest wear, still rides well.'],
+            ].map(([label, color, copy]) => (
+              <div key={label} className="border border-white/10 p-5">
+                <span className={`inline-block ${color} px-3 py-1 mb-4`}>
+                  <span className="text-white font-black text-xs tracking-widest uppercase">{label}</span>
+                </span>
+                <p className="text-white/60 text-sm leading-relaxed">{copy}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-white/10 pt-14">
+            <div>
+              <h3 className="text-white font-black text-xl mb-4">Stock Board or Custom Order?</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-4">
+                Buy stock if the dimensions suit you and you want a board now, or if you are after a second board without paying custom money. Everything is already shaped, glassed and finished, so the price is lower and there is no lead time.
+              </p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Order custom if you want the board built around your height, weight, ability and home break. Paul will spec the outline, rocker, volume and glassing with you. Custom boards start around R5,000 and take one to three weeks. See the full{' '}
+                <Link to="/services/" className="text-pjd-teal underline hover:text-white transition-colors">shaping, glassing and repair services</Link>.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-white font-black text-xl mb-4">Collection and Delivery</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-4">
+                Collection is free from the workshop at 15 Dageraad Street, Jeffreys Bay. You are welcome to come and look at a board before you commit, and Paul will talk you through how it is going to surf for you.
+              </p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                We courier boards nationwide to Cape Town, Durban, Gqeberha, East London and everywhere in between, boxed and insured. Ask for a delivery quote when you{' '}
+                <Link to="/contact/" className="text-pjd-teal underline hover:text-white transition-colors">enquire about a board</Link>, or browse the{' '}
+                <Link to="/gallery/" className="text-pjd-teal underline hover:text-white transition-colors">gallery of past shapes</Link> to see the range of work.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Contact strip */}

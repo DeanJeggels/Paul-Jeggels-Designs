@@ -106,7 +106,7 @@ const GalleryTeaser = ({ onOpenQuiz }) => {
             </h2>
           </div>
           <Link
-            to="/gallery"
+            to="/gallery/"
             className="flex items-center gap-2 text-pjd-teal-ink text-sm font-bold tracking-widest uppercase hover:text-pjd-dark transition-colors group font-body"
           >
             View Full Gallery <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -133,6 +133,11 @@ const GalleryTeaser = ({ onOpenQuiz }) => {
           >
             Want something like this? Take the quiz <ArrowRight className="w-4 h-4" />
           </button>
+          <p className="text-pjd-stone text-sm mt-6 max-w-lg mx-auto font-body">
+            Not up for the wait? Paul keeps{' '}
+            <Link to="/stock/" className="text-pjd-teal-ink underline hover:text-pjd-dark transition-colors">stock surfboards for sale</Link>{' '}
+            that are shaped, glassed and ready to ride today.
+          </p>
         </div>
       </div>
     </section>
@@ -171,7 +176,7 @@ const AboutTeaser = () => (
           No conveyor belt. No factory template. Just a craftsman who surfs what he makes, and makes it for the surfer standing in front of him.
         </p>
         <Link
-          to="/about"
+          to="/about/"
           className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-bold px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group cursor-pointer font-body"
         >
           Meet Paul <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

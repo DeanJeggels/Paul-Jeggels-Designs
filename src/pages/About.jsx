@@ -42,7 +42,10 @@ const About = () => (
             You don't get a generic shape with a logo slapped on it. You get something built for your height, your weight, your surfing level, and the specific waves you actually ride week in, week out.
           </p>
           <p>
-            Over 40 years and 4,000+ boards later, his reputation is built the old-fashioned way: word of mouth, surfer to surfer.
+            Over 40 years and 4,000+ boards later, his reputation is built the old-fashioned way: word of mouth, surfer to surfer. You can{' '}
+            <Link to="/gallery/" className="text-pjd-teal underline hover:text-pjd-dark transition-colors">browse four decades of his shapes</Link>{' '}
+            in the gallery, or see which boards are{' '}
+            <Link to="/stock/" className="text-pjd-teal underline hover:text-pjd-dark transition-colors">in stock and ready to ride</Link>.
           </p>
         </div>
 
@@ -127,7 +130,7 @@ const About = () => (
       <h2 className="text-3xl md:text-5xl font-black text-pjd-dark mb-6">Get Your Board Shaped by Paul.</h2>
       <p className="text-pjd-stone max-w-md mx-auto mb-10">He'll ask the right questions. You'll get the right board.</p>
       <Link
-        to="/contact"
+        to="/contact/"
         className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-black px-10 py-5 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group"
       >
         Get a Quote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
