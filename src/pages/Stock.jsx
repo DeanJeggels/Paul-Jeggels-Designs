@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { ArrowRight, Phone } from 'lucide-react';
 
 // Query the stock table over PostgREST directly, so this page (and the

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 const NavCard = ({ title, subtitle, icon: Icon, href = "#" }) => {
   return (
