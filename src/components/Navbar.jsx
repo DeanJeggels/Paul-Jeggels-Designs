@@ -3,10 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Stock', href: '/stock' },
-  { label: 'Services', href: '/services' },
-  { label: 'About', href: '/about' },
+  { label: 'Gallery', href: '/gallery/' },
+  { label: 'Stock', href: '/stock/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'About', href: '/about/' },
 ];
 
 const Navbar = () => {
@@ -53,7 +53,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            to="/contact"
+            to="/contact/"
             className="bg-pjd-teal text-pjd-dark font-black text-sm tracking-widest uppercase px-6 py-3 hover:bg-pjd-cream transition-colors"
           >
             Get a Quote
@@ -83,7 +83,7 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            to="/contact"
+            to="/contact/"
             className="bg-pjd-teal text-pjd-dark font-black text-sm tracking-widest uppercase px-6 py-4 text-center"
           >
             Get a Quote

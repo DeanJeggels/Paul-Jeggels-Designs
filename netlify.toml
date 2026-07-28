@@ -5,6 +5,16 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# /index.html serves a byte-identical copy of the homepage, so Google sees it as
+# a duplicate URL. force = true is required: without it the static file wins and
+# the rule never fires. Requests for "/" carry the path "/", not "/index.html",
+# so this cannot loop.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # Hashed JS/CSS assets are immutable — cache them for a year.
 [[headers]]
   for = "/assets/*"

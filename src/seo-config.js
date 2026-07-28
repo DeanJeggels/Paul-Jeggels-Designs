@@ -10,9 +10,18 @@ const abs = (p) => (p.startsWith('http') ? p : `${SITE}${p}`);
 const DEFAULT_IMAGE = abs('/images/paul_jeggels_shaping_5.jpg');
 
 // Netlify serves the prerendered index.html files at trailing-slash URLs
-// (e.g. /about/) and 301s the non-slash form to them. Canonical, OG and the
-// sitemap all use this same trailing-slash form so signals stay consistent.
-export const canonicalUrl = (path) => `${SITE}${path === '/' ? '/' : `${path}/`}`;
+// (e.g. /about/) and 301s the non-slash form to them. Canonical, OG, the
+// sitemap and every internal link use this same trailing-slash form so
+// crawlers never take a redirect hop and signals stay consistent.
+//
+// ROUTES is keyed WITHOUT the trailing slash, so any path coming from
+// useLocation() (which will now carry one) gets normalised before lookup.
+const stripSlash = (path) => (path !== '/' && path.endsWith('/') ? path.slice(0, -1) : path);
+
+export const canonicalUrl = (path) => {
+  const p = stripSlash(path);
+  return `${SITE}${p === '/' ? '/' : `${p}/`}`;
+};
 
 const breadcrumb = (trail) => ({
   '@context': 'https://schema.org',
@@ -129,7 +138,7 @@ const jsonScript = (obj) =>
   `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 
 export function metaFor(path) {
-  return ROUTES[path] || ROUTES['/'];
+  return ROUTES[stripSlash(path)] || ROUTES['/'];
 }
 
 // Full <head> HTML injected for a route at prerender time.

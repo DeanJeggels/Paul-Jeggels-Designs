@@ -26,11 +26,11 @@ const Footer = () => {
           <p className="text-pjd-teal text-xs font-bold tracking-widest uppercase mb-5">Navigate</p>
           <div className="flex flex-col gap-3">
             {[
-              ['Gallery', '/gallery'],
-              ['Stock Boards', '/stock'],
-              ['Services', '/services'],
-              ['About', '/about'],
-              ['Get a Quote', '/contact'],
+              ['Gallery', '/gallery/'],
+              ['Stock Boards', '/stock/'],
+              ['Services', '/services/'],
+              ['About', '/about/'],
+              ['Get a Quote', '/contact/'],
             ].map(([label, href]) => (
               <Link key={href} to={href} className="text-white/60 hover:text-white text-sm transition-colors">
                 {label}

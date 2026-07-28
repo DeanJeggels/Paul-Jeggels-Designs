@@ -55,8 +55,11 @@ const Gallery = () => {
         <h1 className="text-5xl md:text-7xl font-black text-pjd-dark leading-tight mb-6">
           40 Years of Shapes.<br />Zero Compromises.
         </h1>
-        <p className="text-pjd-stone max-w-xl leading-relaxed">
-          Every board in this gallery was hand-shaped by Paul Jeggels in Jeffreys Bay. No templates. No shortcuts. Just craft.
+        <p className="text-pjd-stone max-w-2xl leading-relaxed">
+          Every board in this gallery was hand-shaped by Paul Jeggels in Jeffreys Bay. No templates. No CNC machine copying someone else's file. No shortcuts. Four decades of shapes, more than 4,000 boards, each one cut, glassed and finished by hand.
+        </p>
+        <p className="text-pjd-stone max-w-2xl leading-relaxed mt-4">
+          What follows is a mix of custom orders, brand collaborations, resin and colour work, and customers on the boards Paul built for them. If something here catches your eye, he can build the same shape to your own dimensions.
         </p>
       </div>
 
@@ -82,6 +85,54 @@ const Gallery = () => {
               </div>
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Board types. Static editorial content so the page carries real
+          substance in the prerendered HTML rather than an image grid alone. */}
+      <div className="border-t border-pjd-dark/10">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <p className="text-pjd-teal text-xs font-bold tracking-[0.25em] uppercase mb-4">The Range</p>
+          <h2 className="text-3xl md:text-4xl font-black text-pjd-dark mb-6 max-w-2xl leading-tight">
+            What Paul Shapes.
+          </h2>
+          <p className="text-pjd-stone max-w-2xl leading-relaxed mb-14">
+            Forty years in the bay means Paul has shaped just about everything a South African surfer rides, from step-ups for solid J-Bay to logs for small summer days. These are the shapes that come out of the workshop most often.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            {[
+              ['Shortboards and Performance Thrusters', 'The everyday high-performance board, shaped around your weight and ability rather than a pro template, with the volume moved to where you actually need it. Most surfers land somewhere between 5\'8" and 6\'4" for beach breaks and points.'],
+              ['Fish and Twin Fins', 'Wider, flatter and faster through the small stuff. A fish keeps you surfing on days a shortboard stays in the car, and a well-shaped keel twin holds a line through a J-Bay wall better than most people expect.'],
+              ['Hybrids and Grovellers', 'The board most surfers actually need. Shortboard outline with extra width and volume so it paddles easily and still turns properly. If you surf a few times a month and want one board that covers everything, this is usually it.'],
+              ['Mid-Lengths and Eggs', 'Six to eight foot, single fin or 2+1, built for glide. Ideal for surfers coming back to the water, longboarders who want something more manoeuvrable, or anyone chasing more waves without going full log.'],
+              ['Longboards and Logs', 'Traditional nine foot and over with proper nose concave for noseriding, or lighter performance longboards. Shaped for how you actually want to ride: hang fives and trim, or step and turn.'],
+              ['Step-Ups and Guns', 'For when it gets serious. Jeffreys Bay is on the doorstep, so Paul has shaped plenty of boards for solid Supertubes and Boneyards, plus guns for surfers heading to bigger waves further afield.'],
+            ].map(([title, copy]) => (
+              <div key={title}>
+                <h3 className="text-pjd-dark font-black text-lg mb-3">{title}</h3>
+                <p className="text-pjd-stone text-sm leading-relaxed">{copy}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 pt-14 border-t border-pjd-dark/10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-pjd-dark font-black text-xl mb-4">Colour, Resin and Glassing</h3>
+              <p className="text-pjd-stone text-sm leading-relaxed">
+                Plenty of the boards above are here for the finish rather than the outline. Resin tints, swirls, cut laps, opaque panels and gloss coats are all done by hand in the workshop. Glassing is where a board is won or lost, and Paul does it himself. If you want a specific colour, bring a photo and he will match it. Full detail on the{' '}
+                <Link to="/services/" className="text-pjd-teal underline hover:text-pjd-dark transition-colors">glassing and repair services</Link> page.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-pjd-dark font-black text-xl mb-4">Want One of These?</h3>
+              <p className="text-pjd-stone text-sm leading-relaxed">
+                Any shape in this gallery can be rebuilt to your own height, weight and home break. Custom orders start around R5,000 and take one to three weeks, shaped in Jeffreys Bay and couriered anywhere in South Africa. If you would rather not wait, see what is{' '}
+                <Link to="/stock/" className="text-pjd-teal underline hover:text-pjd-dark transition-colors">in stock and ready to ride</Link>, or read{' '}
+                <Link to="/about/" className="text-pjd-teal underline hover:text-pjd-dark transition-colors">Paul's story</Link>.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -82,7 +82,7 @@ const SERVICES = [
     ],
     image: '/images/paul_jeggels_customs_1.webp',
     cta: 'Browse Stock Boards',
-    href: '/stock',
+    href: '/stock/',
   },
 ];
 
@@ -102,6 +102,12 @@ const Services = () => (
         </h1>
         <p className="text-white/55 max-w-xl mt-6 leading-relaxed">
           Custom boards, glassing, ding repairs, fin manufacturing, or a quality second-hand shape. Paul and Daniel have it covered — from blank to barrel. Shaped in Jeffreys Bay, delivered anywhere in South Africa.
+        </p>
+        <p className="text-white/55 max-w-xl mt-4 leading-relaxed">
+          Not sure what you want yet? Look through{' '}
+          <Link to="/gallery/" className="text-pjd-teal underline hover:text-white transition-colors">four decades of Paul's shapes</Link>{' '}
+          for ideas, or see the boards{' '}
+          <Link to="/stock/" className="text-pjd-teal underline hover:text-white transition-colors">in stock and ready to ride today</Link>.
         </p>
       </div>
     </div>
@@ -145,7 +151,7 @@ const Services = () => (
               </ul>
 
               <Link
-                to={s.href || '/contact'}
+                to={s.href || '/contact/'}
                 className="inline-flex items-center gap-2 bg-pjd-teal text-pjd-dark font-black px-8 py-4 text-sm tracking-widest uppercase hover:bg-pjd-cream transition-colors group"
               >
                 {s.cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
