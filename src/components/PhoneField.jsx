@@ -73,6 +73,7 @@ function evaluate(bundle, iso, raw) {
     valid: true,
     e164: parsed.number,
     national: parsed.formatNational(),
+    intl: parsed.formatInternational(),
     country: parsed.country || iso,
   };
 }
@@ -116,6 +117,13 @@ export default function PhoneField({
   const [text, setText] = useState('');
   const [error, setError] = useState('');
   const [example, setExample] = useState('');
+  // Read-back of the number we actually resolved. A visitor who leaves the
+  // country on the South Africa default and types their own national number
+  // can land on a number that is valid but not theirs: an Australian 0412 345
+  // 678 parses as a perfectly good ZA +27412345678. Nothing errors, because
+  // nothing is wrong with it. Showing the resolved country back is what makes
+  // that visible.
+  const [resolved, setResolved] = useState(null);
   const bundleRef = useRef(null);
   const erroredOnce = useRef(false);
   // warm() resolves long after the render that started it, so it cannot read
@@ -123,13 +131,19 @@ export default function PhoneField({
   const countryRef = useRef(defaultCountry);
   const textRef = useRef('');
 
+  const nameOf = (iso) =>
+    [...COMMON_COUNTRIES, ...OTHER_COUNTRIES].find(([c]) => c === iso)?.[2] || iso;
+
   const publish = (result) => {
+    setResolved(result.valid && result.e164 && result.intl
+      ? { intl: result.intl, country: nameOf(result.country) }
+      : null);
     onChange?.(result.valid ? result.e164 : '', { valid: result.valid, country: result.country });
   };
 
   const messageFor = (iso) => {
     const ex = exampleFor(bundleRef.current, iso);
-    const name = [...COMMON_COUNTRIES, ...OTHER_COUNTRIES].find(([c]) => c === iso)?.[2] || iso;
+    const name = nameOf(iso);
     return ex
       ? `That number does not look right for ${name}. Try the format ${ex}.`
       : `That number does not look right for ${name}. Check the digits and try again.`;
@@ -180,6 +194,7 @@ export default function PhoneField({
     const next = e.target.value;
     setText(next);
     textRef.current = next;
+    warm();
     // Reward early, punish late: only re-check while an error is on screen,
     // so the message clears the moment it is fixed.
     if (erroredOnce.current) {
@@ -201,7 +216,11 @@ export default function PhoneField({
     publish(result);
   };
 
-  const hint = example ? `Format: ${example}` : 'Include your area or mobile code.';
+  const hint = resolved
+    ? `Reading this as ${resolved.intl} (${resolved.country}). Change the country if that is wrong.`
+    : example
+      ? `Format: ${example}`
+      : 'Include your area or mobile code.';
 
   return (
     <div className={wrapperClassName}>
@@ -260,7 +279,7 @@ export default function PhoneField({
         </div>
       </div>
 
-      <p id={hintId} className="text-white/60 text-xs mt-2 font-body">
+      <p id={hintId} className={`text-xs mt-2 font-body ${resolved ? 'text-pjd-teal' : 'text-white/60'}`}>
         {hint}
       </p>
       {/* Always mounted. A live region added only on first failure never
