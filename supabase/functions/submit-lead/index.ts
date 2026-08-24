@@ -20,8 +20,68 @@ const ALLOWED_FIELDS = new Set([
   'fin_setup', 'glass_job', 'notes',
 ])
 
+// Per-field length caps. Without these the table accepts arbitrarily large
+// strings, so a single request could write megabytes.
+const MAX_LENGTHS: Record<string, number> = {
+  name: 120,
+  email: 254, // RFC 5321 maximum
+  phone: 32,
+  interest: 40,
+  message: 5000,
+  source: 40,
+  board_type: 40,
+  height_cm: 10,
+  weight_kg: 10,
+  wave_type: 40,
+  length_board: 20,
+  width_board: 20,
+  thickness_board: 20,
+  fin_setup: 60,
+  glass_job: 60,
+  notes: 5000,
+}
+
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
+// Strip control characters, which have no business in a lead and are the usual
+// vehicle for log injection and header smuggling. Newlines and tabs survive in
+// free-text fields; everything else is collapsed to a space.
+function stripControl(value: string, allowNewlines: boolean): string {
+  const pattern = allowNewlines
+    ? /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g
+    : /[\u0000-\u001F\u007F]/g
+  return value.replace(pattern, ' ')
+}
+
+function sanitise(key: string, value: string): string {
+  const freeText = key === 'message' || key === 'notes'
+  let cleaned = stripControl(value, freeText).trim()
+  if (key === 'phone') cleaned = normalisePhone(cleaned)
+  const cap = MAX_LENGTHS[key] ?? 200
+  return cleaned.length > cap ? cleaned.slice(0, cap) : cleaned
+}
+
+// Structural phone check only. The browser does the real validation with full
+// libphonenumber metadata and submits E.164; this is the backstop that keeps
+// junk ("n/a", prose, 500 characters of padding) out of the table when that
+// layer is bypassed or fails to load. Deliberately not country-aware: the
+// server has no metadata, and guessing here would reject valid numbers.
+// "+27 082 960 9353" keeps the national trunk zero, which is invalid in E.164
+// but is how most people write their own number. Drop it so what we store is
+// actually dialable. The browser normalises this too; this covers the path
+// where the validation script was blocked and raw text arrived.
+function normalisePhone(phone: string): string {
+  return phone.replace(/[\s().\u2010-\u2015-]/g, '').replace(/^\+270/, '+27')
+}
+
+// Deliberately structural only. Country-aware length rules live in the browser
+// where there is full metadata; duplicating them here without that metadata
+// rejected real numbers (a 10-digit 0861 UAN, for one), and turning away a
+// paying customer costs more than storing an occasional bad number.
+function isValidPhone(phone: string): boolean {
+  return /^\+?[0-9]{7,15}$/.test(normalisePhone(phone))
 }
 
 Deno.serve(async (req: Request) => {
@@ -70,19 +130,28 @@ Deno.serve(async (req: Request) => {
       )
     }
 
+    // Phone is optional, but a present one must be structurally plausible.
+    if (body.phone !== undefined && body.phone !== null && String(body.phone).trim().length > 0) {
+      if (typeof body.phone !== 'string' || !isValidPhone(body.phone)) {
+        return new Response(
+          JSON.stringify({ error: 'That phone number does not look right. Include the country code, or leave the field empty.' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        )
+      }
+    }
+
     // Build sanitised payload — only allow known fields
     const payload: Record<string, string | null> = {}
     for (const [key, value] of Object.entries(body)) {
       if (ALLOWED_FIELDS.has(key)) {
-        payload[key] = typeof value === 'string' && value.trim().length > 0
-          ? value.trim()
-          : null
+        const cleaned = typeof value === 'string' ? sanitise(key, value) : ''
+        payload[key] = cleaned.length > 0 ? cleaned : null
       }
     }
 
     // Ensure required fields aren't nulled out
-    payload.name = body.name.trim()
-    payload.email = body.email.trim().toLowerCase()
+    payload.name = sanitise('name', body.name)
+    payload.email = sanitise('email', body.email).toLowerCase()
 
     // Insert using service role key (bypasses RLS)
     const supabase = createClient(

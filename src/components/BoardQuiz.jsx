@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, ArrowRight, ArrowLeft, CheckCircle, Loader, AlertCircle } from 'lucide-react';
+import PhoneField from './PhoneField';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -74,7 +75,7 @@ const BoardQuiz = ({ onClose }) => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [body, setBody] = useState({ height: '', weight: '' });
-  const [form, setForm] = useState({ name: '', email: '', phone: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', phoneValid: true });
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -91,6 +92,11 @@ const BoardQuiz = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.phoneValid) {
+      setStatus('error');
+      setErrorMsg('That phone number does not look right. Correct it, or clear the field if you would rather not leave one.');
+      return;
+    }
     setStatus('loading');
     const payload = {
       name: form.name,
@@ -259,12 +265,13 @@ const BoardQuiz = ({ onClose }) => {
                         required
                         className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors font-body"
                       />
-                      <input
-                        type="tel"
-                        placeholder="Phone number"
-                        value={form.phone}
-                        onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
-                        className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors sm:col-span-2 font-body"
+                      <PhoneField
+                        wrapperClassName="sm:col-span-2"
+                        label="Phone number"
+                        hideLabel
+                        className="bg-white/5 border border-white/15 text-white placeholder-white/25 px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors font-body"
+                        selectClassName="bg-pjd-dark border border-white/15 text-white px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:border-pjd-teal transition-colors appearance-none font-body"
+                        onChange={(value, meta) => setForm((f) => ({ ...f, phone: value, phoneValid: meta.valid }))}
                       />
                     </div>
 

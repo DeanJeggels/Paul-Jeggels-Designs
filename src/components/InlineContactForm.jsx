@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle, Loader, AlertCircle } from 'lucide-react';
 import AddressField from './AddressField';
+import PhoneField from './PhoneField';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -13,7 +14,7 @@ const INTERESTS = [
 ];
 
 const InlineContactForm = () => {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', address: '', interest: 'custom', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', phoneValid: true, address: '', interest: 'custom', message: '' });
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -21,18 +22,27 @@ const InlineContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.phoneValid) {
+      setStatus('error');
+      setErrorMsg('That phone number does not look right. Correct it, or clear the field if you would rather not leave one.');
+      return;
+    }
     setStatus('loading');
+
+    const payload = {
+      ...form,
+      message: form.address
+        ? `${form.message}\n\nDelivery address: ${form.address}`.trim()
+        : form.message,
+      source: 'website_inline',
+    };
+    delete payload.phoneValid;
+
     try {
       const res = await fetch(SUBMIT_LEAD_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          message: form.address
-            ? `${form.message}\n\nDelivery address: ${form.address}`.trim()
-            : form.message,
-          source: 'website_inline',
-        }),
+        body: JSON.stringify(payload),
       });
       const result = await res.json();
       if (!res.ok) throw new Error(result.error || 'Something went wrong.');
@@ -93,12 +103,13 @@ const InlineContactForm = () => {
             required
             className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors font-body"
           />
-          <input
-            type="tel"
-            placeholder="Phone number"
-            value={form.phone}
-            onChange={set('phone')}
-            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors sm:col-span-2 font-body"
+          <PhoneField
+            wrapperClassName="sm:col-span-2"
+            label="Phone number"
+            hideLabel
+            className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors font-body"
+            selectClassName="bg-pjd-dark border border-white/15 text-white px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors appearance-none font-body"
+            onChange={(value, meta) => setForm((f) => ({ ...f, phone: value, phoneValid: meta.valid }))}
           />
           <AddressField
             className="bg-white/5 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm focus:outline-none focus:border-pjd-teal transition-colors sm:col-span-2 font-body w-full"

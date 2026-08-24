@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ArrowRight, CheckCircle, Loader, AlertCircle } from 'lucide-react';
+import PhoneField from './PhoneField';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -98,6 +99,7 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
     name: '',
     email: '',
     phone: '',
+    phoneValid: true,
     length: '',
     width: '',
     thickness: '',
@@ -114,6 +116,11 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.phoneValid) {
+      setStatus('error');
+      setErrorMsg('That phone number does not look right. Correct it, or clear the field if you would rather not leave one.');
+      return;
+    }
     setStatus('loading');
 
     const payload = {
@@ -208,10 +215,13 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
               <label className={labelClass}>Email <span className="text-pjd-teal">*</span></label>
               <input type="email" className={inputClass} placeholder="john@example.com" value={form.email} onChange={set('email')} required />
             </div>
-            <div>
-              <label className={labelClass}>Phone</label>
-              <input type="tel" className={inputClass} placeholder="+27 82 000 0000" value={form.phone} onChange={set('phone')} />
-            </div>
+            <PhoneField
+              label="Phone"
+              labelClassName={labelClass}
+              className={inputClass}
+              selectClassName={selectClass}
+              onChange={(value, meta) => setForm((f) => ({ ...f, phone: value, phoneValid: meta.valid }))}
+            />
           </div>
 
           <p className="text-white/40 text-xs tracking-widest uppercase font-bold mb-6">Your Body</p>
