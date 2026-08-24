@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router';
 import { Phone, Instagram, MapPin, CheckCircle, AlertCircle, Loader, ArrowRight } from 'lucide-react';
 import AddressField from '../components/AddressField';
+import PhoneField from '../components/PhoneField';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -30,6 +31,7 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
+    phoneValid: true,
     address: '',
     interest: prefillInterest,
     message: prefillBoardName
@@ -44,20 +46,28 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.phoneValid) {
+      setStatus('error');
+      setErrorMsg('That phone number does not look right. Correct it, or clear the field if you would rather not leave one.');
+      return;
+    }
     setStatus('loading');
     setErrorMsg('');
+
+    const payload = {
+      ...form,
+      message: form.address
+        ? `${form.message}\n\nDelivery address: ${form.address}`.trim()
+        : form.message,
+      source: 'website',
+    };
+    delete payload.phoneValid;
 
     try {
       const res = await fetch(SUBMIT_LEAD_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          message: form.address
-            ? `${form.message}\n\nDelivery address: ${form.address}`.trim()
-            : form.message,
-          source: 'website',
-        }),
+        body: JSON.stringify(payload),
       });
       const result = await res.json();
       if (!res.ok) throw new Error(result.error || 'Something went wrong.');
@@ -142,10 +152,11 @@ const Contact = () => {
               </div>
             </div>
 
-            <div>
-              <label className="block text-white/70 text-xs font-bold tracking-widest uppercase mb-2 font-body">Phone Number</label>
-              <input type="tel" className={inputClass} placeholder="+27 82 000 0000" value={form.phone} onChange={set('phone')} />
-            </div>
+            <PhoneField
+              className={inputClass}
+              selectClassName={selectClass}
+              onChange={(value, meta) => setForm((f) => ({ ...f, phone: value, phoneValid: meta.valid }))}
+            />
 
             <div>
               <label className="block text-white/70 text-xs font-bold tracking-widest uppercase mb-2 font-body">Delivery Address <span className="text-white/60 normal-case font-normal">(optional, free pick-up in J-Bay)</span></label>
