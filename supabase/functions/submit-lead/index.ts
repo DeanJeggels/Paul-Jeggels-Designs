@@ -81,7 +81,11 @@ function normalisePhone(phone: string): string {
 // rejected real numbers (a 10-digit 0861 UAN, for one), and turning away a
 // paying customer costs more than storing an occasional bad number.
 function isValidPhone(phone: string): boolean {
-  return /^\+?[0-9]{7,15}$/.test(normalisePhone(phone))
+  // Lower bound is 4, not 7. Several territories have national numbers shorter
+  // than seven digits (Greenland, Faroe Islands, Tokelau, Tuvalu and others),
+  // and a 7 minimum rejected all of them whenever raw text reached us because
+  // the browser validation had not loaded. Upper bound is the E.164 maximum.
+  return /^\+?[0-9]{4,15}$/.test(normalisePhone(phone))
 }
 
 Deno.serve(async (req: Request) => {
@@ -115,15 +119,22 @@ Deno.serve(async (req: Request) => {
   try {
     const body = await req.json()
 
+    // Sanitise BEFORE validating, so the value that gets checked is the value
+    // that gets stored. Checking raw and storing cleaned let a name of pure
+    // control characters pass the non-empty gate and insert as an empty string,
+    // and rejected a pasted email that merely had a trailing space.
+    const cleanName = typeof body.name === 'string' ? sanitise('name', body.name) : ''
+    const cleanEmail = typeof body.email === 'string' ? sanitise('email', body.email).toLowerCase() : ''
+
     // Validate required fields
-    if (!body.name || typeof body.name !== 'string' || body.name.trim().length === 0) {
+    if (!cleanName) {
       return new Response(
         JSON.stringify({ error: 'Name is required.' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
 
-    if (!body.email || typeof body.email !== 'string' || !isValidEmail(body.email)) {
+    if (!cleanEmail || !isValidEmail(cleanEmail)) {
       return new Response(
         JSON.stringify({ error: 'A valid email address is required.' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -131,8 +142,10 @@ Deno.serve(async (req: Request) => {
     }
 
     // Phone is optional, but a present one must be structurally plausible.
-    if (body.phone !== undefined && body.phone !== null && String(body.phone).trim().length > 0) {
-      if (typeof body.phone !== 'string' || !isValidPhone(body.phone)) {
+    // No String() coercion: a crafted object with a throwing toString would
+    // turn a bad request into a 500.
+    if (body.phone !== undefined && body.phone !== null) {
+      if (typeof body.phone !== 'string' || (body.phone.trim().length > 0 && !isValidPhone(body.phone))) {
         return new Response(
           JSON.stringify({ error: 'That phone number does not look right. Include the country code, or leave the field empty.' }),
           { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -150,8 +163,8 @@ Deno.serve(async (req: Request) => {
     }
 
     // Ensure required fields aren't nulled out
-    payload.name = sanitise('name', body.name)
-    payload.email = sanitise('email', body.email).toLowerCase()
+    payload.name = cleanName
+    payload.email = cleanEmail
 
     // Insert using service role key (bypasses RLS)
     const supabase = createClient(
