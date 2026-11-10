@@ -131,6 +131,12 @@ export const ROUTES = {
       'Get a free quote for your custom surfboard from Paul Jeggels in Jeffreys Bay. Response within 24 hours. Call, email or visit the workshop.',
     jsonLd: [breadcrumb([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])],
   },
+  '/privacy': {
+    title: 'Privacy Policy | Paul Jeggels Designs',
+    description:
+      'How Paul Jeggels Designs collects, uses and protects the details you send through this site, and your rights under POPIA.',
+    jsonLd: [breadcrumb([{ name: 'Home', path: '/' }, { name: 'Privacy', path: '/privacy' }])],
+  },
 };
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
