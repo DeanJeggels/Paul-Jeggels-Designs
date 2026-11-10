@@ -3,6 +3,7 @@ import { useLocation, useSearchParams } from 'react-router';
 import { Phone, Instagram, MapPin, CheckCircle, AlertCircle, Loader, ArrowRight } from 'lucide-react';
 import AddressField from '../components/AddressField';
 import PhoneField from '../components/PhoneField';
+import PrivacyNote from '../components/PrivacyNote';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -179,6 +180,8 @@ const Contact = () => {
                 {errorMsg}
               </div>
             )}
+
+            <PrivacyNote />
 
             <button
               type="submit"

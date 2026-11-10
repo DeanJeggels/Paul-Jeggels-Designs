@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, ArrowRight, ArrowLeft, CheckCircle, Loader, AlertCircle } from 'lucide-react';
 import PhoneField from './PhoneField';
+import PrivacyNote from './PrivacyNote';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -281,6 +282,8 @@ const BoardQuiz = ({ onClose }) => {
                         {errorMsg}
                       </div>
                     )}
+
+                    <PrivacyNote />
 
                     <button
                       type="submit"
