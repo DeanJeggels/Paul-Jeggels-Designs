@@ -6,6 +6,13 @@
   # react-router 8 requires Node >= 22.22.0. Bumping this is mandatory:
   # on Node 20 the Netlify build fails at install.
   NODE_VERSION = "22"
+  # Netlify's smart secret detection fails the build on any "AIza..." value.
+  # This one is the Google Maps BROWSER key in src/components/AddressField.jsx:
+  # public by design (it ships in the JS every visitor downloads) and protected
+  # by its referrer restriction in Google Cloud Console. Moving it to an env var
+  # would not help, because Vite inlines it into the build output, which is
+  # also scanned. Omitting this exact value keeps scanning on for everything else.
+  SECRETS_SCAN_SMART_DETECTION_OMIT_VALUES = "AIzaSyAHlxI6cdrUMAkTA7pCCRQLRPgjiAHOF1s"
 
 # /index.html serves a byte-identical copy of the homepage, so Google sees it as
 # a duplicate URL. force = true is required: without it the static file wins and
