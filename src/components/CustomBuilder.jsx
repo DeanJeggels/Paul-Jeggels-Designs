@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ArrowRight, CheckCircle, Loader, AlertCircle } from 'lucide-react';
 import PhoneField from './PhoneField';
+import PrivacyNote from './PrivacyNote';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -288,6 +289,8 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
               {errorMsg}
             </div>
           )}
+
+          <PrivacyNote className="mb-4" />
 
           <button
             type="submit"

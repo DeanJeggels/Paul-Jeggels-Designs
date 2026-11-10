@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Stock from './pages/Stock';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
 import { metaFor } from './seo-config';
 
 // Scroll to top + keep the document title correct on client-side navigation
@@ -42,6 +43,7 @@ const AppShell = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/stock" element={<Stock />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />

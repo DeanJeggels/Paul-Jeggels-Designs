@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, CheckCircle, Loader, AlertCircle } from 'lucide-react';
 import AddressField from './AddressField';
 import PhoneField from './PhoneField';
+import PrivacyNote from './PrivacyNote';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -140,6 +141,8 @@ const InlineContactForm = () => {
               {errorMsg}
             </div>
           )}
+
+          <PrivacyNote className="sm:col-span-2" />
 
           <button
             type="submit"
