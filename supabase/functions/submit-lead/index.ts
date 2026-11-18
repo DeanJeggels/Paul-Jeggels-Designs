@@ -1,4 +1,5 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { adKeyword } from './adKeyword.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -17,7 +18,7 @@ const ALLOWED_FIELDS = new Set([
   'name', 'email', 'phone', 'interest', 'message', 'source',
   'board_type', 'height_cm', 'weight_kg', 'wave_type',
   'length_board', 'width_board', 'thickness_board',
-  'fin_setup', 'glass_job', 'notes',
+  'fin_setup', 'glass_job', 'notes', 'ad_keyword',
 ])
 
 // Per-field length caps. Without these the table accepts arbitrarily large
@@ -39,6 +40,7 @@ const MAX_LENGTHS: Record<string, number> = {
   fin_setup: 60,
   glass_job: 60,
   notes: 5000,
+  ad_keyword: 80,
 }
 
 function isValidEmail(email: string): boolean {
@@ -161,6 +163,9 @@ Deno.serve(async (req: Request) => {
         payload[key] = cleaned.length > 0 ? cleaned : null
       }
     }
+
+    // The ad keyword has its own shape (adKeyword.ts): anything else becomes nothing rather than a refused lead.
+    if ('ad_keyword' in payload) payload.ad_keyword = adKeyword(body.ad_keyword)
 
     // Ensure required fields aren't nulled out
     payload.name = cleanName

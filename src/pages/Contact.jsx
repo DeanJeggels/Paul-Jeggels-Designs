@@ -4,6 +4,7 @@ import { Phone, Instagram, MapPin, CheckCircle, AlertCircle, Loader, ArrowRight 
 import AddressField from '../components/AddressField';
 import PhoneField from '../components/PhoneField';
 import PrivacyNote from '../components/PrivacyNote';
+import { leadSource, adKeyword } from '../utils/cameFrom';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -60,7 +61,8 @@ const Contact = () => {
       message: form.address
         ? `${form.message}\n\nDelivery address: ${form.address}`.trim()
         : form.message,
-      source: 'website',
+      source: leadSource('website'),
+      ad_keyword: adKeyword(),
     };
     delete payload.phoneValid;
 

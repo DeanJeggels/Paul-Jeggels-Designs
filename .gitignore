@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 dist-ssr
 .env
+
+# Supabase CLI state (written by any supabase command run here)
+supabase/.temp/

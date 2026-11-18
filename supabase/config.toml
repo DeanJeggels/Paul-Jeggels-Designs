@@ -1,0 +1,17 @@
+# Edge Function settings for this repo's functions, as they run live in the CH-ISE Supabase project
+# (dplbfhwqbmnzmrncxain), read 18 Nov 2026. The website's forms call submit-lead without a login, so it must keep
+# verify_jwt = false: deployed with the CLI default (true), every enquiry would be refused with a 401. Keep this file in
+# step with the live settings, and deploy with: supabase functions deploy <name> --project-ref dplbfhwqbmnzmrncxain
+project_id = "pauljeggelsdesigns"
+
+[functions.submit-lead]
+verify_jwt = false
+
+[functions.google-reviews]
+verify_jwt = true
+
+[functions.google-reviews-auth]
+verify_jwt = false
+
+[functions.hybrid-search]
+verify_jwt = true
