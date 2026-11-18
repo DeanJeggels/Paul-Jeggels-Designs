@@ -62,12 +62,13 @@ const Privacy = () => (
           </li>
           <li>which form you used;</li>
           <li>
-            whether you reached this site from one of our Google ads, and the search words that showed you the ad, or
-            from The Surf Journey's website.
+            whether you reached this site from one of our Google ads, and the ad keyword your search matched, or from
+            The Surf Journey's website.
           </li>
         </ul>
         <p>
-          We collect this from you directly. To block spam, the form briefly checks your IP address and limits
+          We collect this from you directly, except the last item, which comes from the link you followed to reach
+          us. To block spam, the form briefly checks your IP address and limits
           how many messages it accepts from one address in 15 minutes. The companies that host the site also keep
           standard technical logs, such as IP address and browser type, to run it securely.
         </p>
@@ -125,6 +126,11 @@ const Privacy = () => (
           This site doesn't use analytics or advertising cookies. Google's services on the site, such as address
           suggestions and fonts, may set their own cookies under{' '}
           <A href="https://policies.google.com/privacy">Google's privacy policy</A>.
+        </p>
+        <p>
+          If you arrive from one of our Google ads or from The Surf Journey's website, your browser keeps a note of
+          that for the open tab only. It is not a cookie, it is cleared when you close the tab, and it only reaches us
+          if you send an enquiry.
         </p>
       </Section>
 
