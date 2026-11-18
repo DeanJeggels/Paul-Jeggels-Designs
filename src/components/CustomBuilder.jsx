@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, ChevronLeft, ArrowRight, CheckCircle, Loader, AlertCircle } from 'lucide-react';
 import PhoneField from './PhoneField';
 import PrivacyNote from './PrivacyNote';
+import { leadSource, adKeyword } from '../utils/cameFrom';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -139,7 +140,8 @@ const DimensionsForm = ({ board, onBack, onClose }) => {
       glass_job: form.glass_job || null,
       notes: form.notes || null,
       message: `Custom builder request — ${board.name}`,
-      source: 'website_builder',
+      source: leadSource('website_builder'),
+      ad_keyword: adKeyword(),
     };
 
     try {

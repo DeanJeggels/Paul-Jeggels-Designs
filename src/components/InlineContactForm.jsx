@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle, Loader, AlertCircle } from 'lucide-react';
 import AddressField from './AddressField';
 import PhoneField from './PhoneField';
 import PrivacyNote from './PrivacyNote';
+import { leadSource, adKeyword } from '../utils/cameFrom';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -35,7 +36,8 @@ const InlineContactForm = () => {
       message: form.address
         ? `${form.message}\n\nDelivery address: ${form.address}`.trim()
         : form.message,
-      source: 'website_inline',
+      source: leadSource('website_inline'),
+      ad_keyword: adKeyword(),
     };
     delete payload.phoneValid;
 

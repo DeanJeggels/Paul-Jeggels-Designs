@@ -5,8 +5,9 @@ import { Link } from 'react-router';
 // does today: the four forms post to the submit-lead Supabase function, which
 // stores the lead in pjd_leads and calls the "PJD New Lead Notification" n8n
 // workflow (email to Paul with family CC'd, plus a confirmation email to the
-// customer). If that flow changes, update this page in the same change.
-const UPDATED = '10 November 2026';
+// customer). If that flow changes, update this page in the same change. Since 18 Nov 2026 a lead also records whether the
+// visitor came from a Google ad (and its keyword) or from The Surf Journey's link: src/utils/cameFrom.js.
+const UPDATED = '18 November 2026';
 
 const Section = ({ title, children }) => (
   <section className="mb-12">
@@ -59,7 +60,11 @@ const Privacy = () => (
             board details you choose to share, such as your height, weight, the waves you surf, board size, fin
             setup and glassing preferences;
           </li>
-          <li>which form you used.</li>
+          <li>which form you used;</li>
+          <li>
+            whether you reached this site from one of our Google ads, and the search words that showed you the ad, or
+            from The Surf Journey's website.
+          </li>
         </ul>
         <p>
           We collect this from you directly. To block spam, the form briefly checks your IP address and limits
@@ -71,7 +76,8 @@ const Privacy = () => (
       <Section title="Why we collect it">
         <p>
           To reply to you, quote you, shape and deliver your board, and follow up with you about that board. When
-          you send a form, you also get an automatic email confirming we received it.
+          you send a form, you also get an automatic email confirming we received it. Where you came from is used only
+          to see which of our ads and links bring enquiries.
         </p>
         <p>We don't send newsletters or marketing emails, and we don't sell or rent your information to anyone.</p>
       </Section>

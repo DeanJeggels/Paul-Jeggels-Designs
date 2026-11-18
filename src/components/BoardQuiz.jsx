@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, ArrowRight, ArrowLeft, CheckCircle, Loader, AlertCircle } from 'lucide-react';
 import PhoneField from './PhoneField';
 import PrivacyNote from './PrivacyNote';
+import { leadSource, adKeyword } from '../utils/cameFrom';
 
 const SUBMIT_LEAD_URL = 'https://dplbfhwqbmnzmrncxain.supabase.co/functions/v1/submit-lead';
 
@@ -109,7 +110,8 @@ const BoardQuiz = ({ onClose }) => {
       weight_kg: body.weight,
       wave_type: answers.waves === 'beach' ? 'beach_break' : answers.waves === 'point' ? 'point_break' : 'all',
       message: `Quiz result: ${board.name}. Experience: ${answers.experience}. Style preference: ${answers.style}.`,
-      source: 'website_quiz',
+      source: leadSource('website_quiz'),
+      ad_keyword: adKeyword(),
     };
 
     try {
