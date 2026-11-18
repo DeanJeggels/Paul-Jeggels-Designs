@@ -17,3 +17,8 @@ Deno.test('anything else is dropped as nothing, so the lead still goes', () => {
     assertEquals(adKeyword(bad), null, String(bad))
   }
 })
+
+Deno.test('input longer than the browser sends is dropped before any pattern runs, even if it would tidy to a keyword', () => {
+  assertEquals(adKeyword('"'.repeat(98) + 'abc'), null)
+  assertEquals(adKeyword('"'.repeat(96) + 'abc'), 'abc')
+})
