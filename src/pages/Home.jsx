@@ -7,6 +7,7 @@ import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import InlineContactForm from '../components/InlineContactForm';
+import CoachingCrossSell from '../components/CoachingCrossSell';
 
 // ─── HERO ────────────────────────────────────────────────────────────────────
 
@@ -202,6 +203,7 @@ const Home = () => {
       <Testimonials />
       <GalleryTeaser onOpenQuiz={() => setIsQuizOpen(true)} />
       <AboutTeaser />
+      <CoachingCrossSell />
       <FAQ />
       <InlineContactForm />
     </>

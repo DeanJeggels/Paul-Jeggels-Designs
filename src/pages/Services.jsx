@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { ArrowRight, Sliders, Wrench, Fish, Tag } from 'lucide-react';
+import CoachingCrossSell from '../components/CoachingCrossSell';
 
 const SERVICES = [
   {
@@ -183,6 +184,7 @@ const Services = () => (
       </div>
     </div>
 
+    <CoachingCrossSell />
   </div>
 );
 
